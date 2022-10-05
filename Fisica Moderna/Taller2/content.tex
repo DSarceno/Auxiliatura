@@ -9,6 +9,13 @@
 
 \begin{mdframed}[style=warning]
 	\begin{ejercicio}
-		
+		Primero es necesario encontrar el tiempo de ida y vuelta desde cada punto de vista, para "A"
+			$$ L = L_o \sqrt{1 - v^2 /c^2} = 9.6ly \qquad t_A = \frac{9.6ly}{0.6c} = 16y, $$
+		en total, el viaje para "A" dura $32y$. Para "B", simplemente se tiene $\flatfrac{12ly}{0.6c} = 20y$ ida y $20y$ vuelta. Dado que cada uno envía señales en periodos de $1y$, dado que estamos a velocidades relativistas, se tiene una dilatación/desfase gracias al efecto doppler
+		\begin{description}
+			\item[Ida: ] $$ T_1 = (1y) \sqrt{\frac{1 + v/c}{1 - v/c}} = 2y/\text{signal}. $$
+			\item[Vuelta: ] $$ T_2 = (1y) \sqrt{\frac{1 - v/c}{1 + v/c}} = \frac{1}{2} y/\text{signal}. $$
+		\end{description}
+		Es claro ver que la cantidad de señales envíadas por "A" es la misma cantidad que recibe "B" y viceversa, pero es necesario verificarlo. Entonces, para "A" en la ida se tienen $16y/(2y/\text{signal}) = 8\text{signals}$ y en la vuelta $16y/(0.5y/\text{signal}) = 32 \text{signal}$, en total $40\text{signals}$ recibe "A". Para "B" en la ida se tienen $(20y+12y)/(2y/\text{signal}) = 16\text{signal}$ (los $12y$ son el delay de la ultima emisión), para la vuelta $8y/(0.5y/\text{signal}) = 16y$, en total $16\text{signals}$. Comprobando lo dicho anteriormente.
 	\end{ejercicio}
 \end{mdframed}
