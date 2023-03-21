@@ -1,0 +1,226 @@
+\section*{Tarea 1 (P23.2)}
+
+Sabiendo que el número atómico de la plata es $47$, se tienen esa cantidad de electrones. Entonces, utilizando el número de avogadro\footnote{Es el factor de proporcionalidad que relaciona el número de partículas en una muestra con la cantidad de sustancia de la misma.} y con un poco de aritmética se llega a
+	$$ N = \qty(\frac{10g}{107.87g/\text{mol}}) \qty(6.022\times 10^{23} \text{atomos}/\text{mol}) \qty(47 \text{electrones}/\text{atomo}) = 2.62\times 10^{24} \text{electrones}. $$
+	
+Ahora, encontramos el número de electrones en $1mC$
+	$$ \frac{Q}{e} = \frac{1mC}{1.6\times 10^{15}} = 6.24\times 10^{15} \text{electrones}, $$
+
+que con un poco de aritmética, se encuentra que hay $2.38$ electrones agregados por cada $10^9$ existentes.
+
+
+
+
+
+
+
+
+\section*{Tarea 2 (P23.7)}
+
+Dado el sistema, se tiene el siguiente diagrama con las respectivas fuerzas actuando sobre $q_2$.
+\begin{center}
+	\input{graph}
+\end{center}
+
+Con el diagrama mostrado, se tienen las dos fuerzas actuando sobre $q_2$
+	$$ \vec{F} _{12} = \frac{1}{4\pi \varepsilon _o} \frac{\abs{q_1 q_2}}{r^2} \qty(\cos{60} \vx + \sin{60} \vy), $$
+	$$ \vec{F} _{32} = \frac{1}{4\pi \varepsilon _o} \frac{\abs{q_2 q_3}}{r^2} \qty(\cos{60} \vx - \sin{60} \vy). $$
+Sumando ambas fuerzas y valuando valores:
+	$$ \vec{F} = 0.755 N \vx - 0.436N\vy , $$
+o $\abs{F} = 0.872N$ a $\theta = -30^o$.
+
+
+
+
+
+
+
+
+
+
+
+\section*{Tarea 3 (P23.39)}
+
+La dirección del campo eléctrico será la misma dirección que el movimiento del haz de elecrones. Para la magnitud se tiene, por teorema trabajo-energía
+	$$ W_{neto} = \Delta K, $$
+	$$ -\underbrace{F}_{eE} d = 0 - K, $$
+	$$ \therefore \quad E = \frac{K}{ed}. $$
+
+
+
+
+
+
+
+
+
+
+
+\section*{Tarea 4 (P24.43)}
+
+El área de un casquete esférico de la siguiente forma
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.1]{./img/casquete.png}
+		\caption{Casquete esférico.}
+		\label{casq}
+	\end{figure}
+es: $ A = \pi (a^2 + h^2) \quad \Rightarrow \quad A = 2\pi r^2 \qty(1-\cos{\theta}) $. Con esto y teniendo el campo eléctrico de una carga puntual
+	$$ \Phi _E = \qty[2\pi r^2 (1-\cos{\theta})]\qty[\frac{Q}{4\pi \varepsilon _o r^2}], $$
+	$$ \Phi _E = \frac{Q}{2\varepsilon _o} (1 - \cos{\theta}). $$
+Para $\theta = 90^o$:
+	$$ \Phi _E (\theta = 90^o) = \frac{Q}{2\varepsilon _o} $$
+flujo en una semiesfera. \\
+Para $\theta = 180^o$:
+	$$ \Phi _E (\theta = 180^o) = \frac{Q}{\varepsilon _o} $$
+flujo en una esfera completa, el caso "base" de la ley de Gauss.
+
+
+
+
+
+
+
+
+
+
+
+\section*{Tarea 5 (P25.39)}
+
+\begin{enumerate}[a)]
+	\item Como se trata de un conductor, el campo dentro de él es cero. Mientras que el voltaje tiene un valor de
+		$$ V = \frac{q}{4\pi \varepsilon _o r} = 1.67\times 10^{6} V. $$
+	\item Fuera de la esfera el campo se comporta como el de una carga puntual, por ende
+		$$ E(0.2) = 5.8\times 10^{6} N/C, $$
+		$$ V(0.2) = 1.168\times 10^{6} V. $$
+	\item Al igual que el anterior inciso, es equivalente a una carga puntual.
+		$$ E(0.14) = 11.9\times 10^{6} N/C, $$
+		$$ V(0.14) = 1.67\times 10^{6} V. $$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\section*{Tarea 6 (P25.31)}
+
+Dado que $\vec{E} = -\grad{V}$, entonces
+	$$ \vec{E} = -\qty(\pdv{V}{x} \vx + \pdv{V}{y} \vy + \pdv{V}{z} \vz) = \qty(6xy - 5) \vx + \qty(3x^2 - 2z^2) \vy - \qty(4yz) \vz , $$
+valuando para $(1,0,-2)$, el valor del campo en dicho punto es
+	$$ \boxed{ E(1,0,-2) = -5(\vx + \vy). } $$
+	
+Entonces
+	$$ \boxed{ \abs{\vec{E}} = 5\sqrt{2} N/C .} $$
+
+
+
+
+
+
+
+
+\section*{Tarea 7 (P26.1)}
+
+
+Tomando la definición de capacitancia
+	$$ C = \frac{Q}{V_{AB}}, $$
+se tiene
+	\begin{enumerate}[a)]
+		\item Para $C = 4\mu F$ y $12V$, se tiene $48\mu C$.
+		\item Para $C = 4\mu F$ y $1.5V$, se tiene $6\mu C$.
+	\end{enumerate}
+
+
+
+
+
+
+
+\section*{Tarea 8 (P28.2)}
+
+
+\begin{enumerate}[a)]
+	\item Calculamos la corriente $I = \frac{\varepsilon}{R + r}$ y, con esto, la diferencia de potencial.
+		$$ \boxed{ \Delta V = IR = 12.4V } $$
+	\item Se tiene que $I_{\text{bateria}} = I_{\text{luces}} + I_{\text{carro}}$, por la batería $\varepsilon = I_{\text{bateria}} r + I_{\text{luces}} R$, sustituyendo la corriente de la batería encontramos la corriente por las luces $I_{\text{luces}} = 1.93A$. Con esto, encontramos la diferencia de potencial
+		$$ \boxed{\Delta V = 1.93A*5\Omega = 9.65V .} $$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+\section*{Tarea 9 (P27.27)}
+
+Dado que la resistencia no cambia, se tiene la razón entre la potencia a $120V$ y $140V$ es de
+	$$ \frac{\mathcal{P}}{\mathcal{P_o}} = \frac{V^2 /R}{V_o ^2 /R} = \qty(\frac{140}{120})^2 = 1.361. $$
+Por lo que, el incremento es
+	$$ \Delta \% = \qty(\frac{P - P_o}{P_o}) \boxed{ = 36.1\% .} $$
+
+
+
+
+
+
+
+\section*{Tarea 10 (P28.13)}
+
+
+La resistencia \textbf{disminuye}. La resistencia con el switch abierto es:
+	$$ R + \frac{1}{\frac{1}{90 + 10} + \frac{1}{90 + 10}} = R + 50\Omega . $$
+	Mientras que la nueva resistencia equivalente se calcula por malla
+	$$ R + \frac{1}{\frac{1}{90} + \frac{1}{10}} + \frac{1}{\frac{1}{90} + \frac{1}{10}} = R + 18\Omega . $$
+
+Si el factor es de $2$, el valor de la resistencia es de $R = 14\Omega$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%
