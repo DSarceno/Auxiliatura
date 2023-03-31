@@ -1,0 +1,267 @@
+\begin{mdframed}[style=warning]
+	\begin{ejercicio}
+		\textbf{Conceptos.}
+		\begin{enumerate}
+			\item Sus manos están húmedas y el dispensador de toallas del baño está vacío. ¿Qué hace para quitar las gotas de agua de sus manos? ¿Cómo su acción ejemplifica una de las leyes de Newton? ¿Cuál de ellas?
+			$\mathbf{R//}$ Al sacudir las manos se ve claramente la acción de la inercia, haciendo que las gotas sigan el movimiento dado al momento de cambiar de dirección la mano. Primera Ley de Newton.
+			\item ¿Un objeto puede ejercer una fuerza sobre sí mismo? Argumente. $\mathbf{R//}$ No, por la tercera Ley de Newton.
+			\item Una cubeta de agua se puede girar en una trayectoria vertical tal que no se derrame agua. ¿Por qué el agua permanece en la cubeta, aun cuando la cubeta esté sobre su cabeza? $\mathbf{R//}$ Gracias a la primera ley de Newton, la acción de la fuerza centrífuga (la cual es una fuerza ficticia), hace que el agua quiera seguir su estado de movimiento y por ende, mantenerse en la cubeta.
+			\item ¿Por qué un piloto tiende a desmayarse cuando sale de una pronunciada caída en picada? $\mathbf{R//}$ La idea es la misma que el inciso anterior, la presión sanguínea no es suficiente para vencer a la inercia y el aumento relativo del peso, por lo que no llega suficiente sangre al cerebro. Esto causa los desmayos e incluso, si ocurre por un lapso muy prolongado de tiempo, la muerte.
+		\end{enumerate}
+	\end{ejercicio}
+\end{mdframed}
+
+
+
+
+
+\begin{mdframed}[style=warning]
+	\begin{ejercicio}
+		El bloque $A$, de peso $3w$, se desliza con rapidez constante, bajando por un plano $S$ inclinado $36.9^o$, mientras la tabla $B$, de peso $w$, descansa sobre $A$, estando sujeta con una cuerda a la pared. Si el coeficiente de fricción es igual entre $A$ y $B$ y entre $S$ y $A$, determine su valor.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.35]{./img/599.png}
+			\caption{Ejercicio 2}
+			\label{599}
+		\end{figure}
+	\end{ejercicio}
+	\noindent \textbf{Solución: } \\
+	Para este problema se tienen los siguientes diagramas de cuerpo libre y sus respectivas sumatorias de fuerzas en ambos ejes (con el sistema de referencia rotado de modo que el eje $x$ sea paralelo al plano).
+	\begin{multicols}{2}
+		\input{ej2_dclA}
+		\begin{align*}
+			\sum F_x &= 0 \\
+			3w\sin{\theta} &= f_{AB} + f_{SA} \numberthis \label{ej2_dclA_x} \\
+			\sum F_y &= 0 \\
+			n_{SA} &= n_{BA} + 3w\cos{\theta} \numberthis \label{ej2_dclA_y}
+		\end{align*}
+		\columnbreak
+		\input{ej2_dclB}
+		Para el bloque $B$ no nos interesa el eje $x$.
+		\begin{align*}
+			\sum F_y &= 0 \\
+			n_{AB} &= w\cos{\theta} \numberthis \label{ej2_dclB_y}
+		\end{align*}
+	\end{multicols}
+	Además, por tercera ley de Newton, sabemos que $\abs{n_{AB}} = \abs{n_{BA}}$ y por definición $f_{AB} = \mu n_{AB}$ y $f_{SA} = \mu n_{SA}$. Con esto, resolvemos el sistema de ecuaciones y se tiene
+		$$ 3w\sin{\theta} = 5w\mu \cos{\theta}, $$
+		$$ \therefore \quad \boxed{ \mu = \frac{3}{5} \tan{\theta} = 0.45 } $$
+\end{mdframed}
+
+
+
+
+
+
+
+\begin{mdframed}[style=warning]
+	\begin{ejercicio}
+		Una cuenta pequeña puede desliarse sin fricción por un aro circular de $0.1m$ de radio, que está e un plano vertical. El aro gira con velocidad constante de $4rev/s$ en torno a un diametro vertical. \textit{(a)} Calcule el ángulo $\beta$ en el que la cuenta está en equilibrio vertical. \textit{(b)} ¿La cuenta podría permanecer a la misma altura que el centro del aro?
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.35]{./img/5119.png}
+			\caption{Ejercicio 3}
+			\label{5119}
+		\end{figure}
+	\end{ejercicio}
+	\noindent \textbf{Solución: } \\
+	\textit{(a)} En el momento de equilibrio vertical se tiene el siguiente diagrama de cuerpo libre:
+	\begin{center}
+		\input{ej3_dcl}	
+	\end{center}
+	Con esto, se tienen las siguientes sumatorias de fuerza, entendiendo que la línea punteada es la trayectoria que sigue la cuenta
+	\begin{align*}
+		\sum F_x &= ma_c \\
+		N\sin{\beta} &= ma_c = 4\pi ^2 \nu ^2 mR\sin{\beta} \numberthis \label{ej3_dcl_x} \\
+		\sum F_y &= 0 \quad \text{(equilibrio vertical)} \\
+		N\cos{\beta} &= mg. \numberthis \label{ej3_dcl_y}
+	\end{align*}
+	Dividiendo \eqref{ej3_dcl_x} entre \eqref{ej3_dcl_y} y despejando el ángulo, se tiene
+		$$ \boxed{ \beta = \cos ^{-1} {\qty(\frac{g}{4\pi ^2 \nu ^2 R})} = 81.1^o . } $$
+	\textit{(b)} No, ya que si la cuenta está a la altura del centro del aro, se tiene $\beta \to \frac{\pi}{2}$ lo que implica una frecuencia $\nu \to \infty$, cosa que es imposible.
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{mdframed}[style=warning]
+	\begin{ejercicio}
+		Si un bloque cuadrado se desliza por una cuña con ángulo recto inclinada un ángulo $\theta$. El coeficiente de fricción cinético entre la cuña y el bloque es $\mu _k$. ¿Cuál es la aceleración del bloque en términos de las variables conocidas?
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.3]{./img/cuna.png}
+			\caption{Ejercicio 4}
+		\end{figure}
+	\end{ejercicio}
+	\noindent \textbf{Solución: } \\
+	Realizamos los diagramas de cuerpo libre.
+	\begin{center}
+		\input{ej4_dcl1}
+		\vspace{0.5cm}
+		\input{ej4_dcl2}
+	\end{center}
+	Como se ve en el segundo diagrama, la fuerza normal resultante es la suma vectorial de las dos fuerzas normales presentes, una por cada superficie de contacto, $N_R = \sqrt{2} N$. Ahora, tomando el primer diagrama, realizamos la sumatoria de fuerzas (con el sistema de referencia rotado)
+		\begin{align*}
+			\sum F_x &= ma \\
+			ma &= mg\sin{\theta} - 2f \numberthis \label{ej4_dcl_x} \\
+			\sum F_y &= 0 \\
+			N_R &= mg\cos{\theta}. \numberthis \label{ej4_dcl_y}
+		\end{align*}
+	Resolviendo el sistema de ecuaciones sabiendo que $f = \mu _k N$ (ojo, aquí la fuerza normal relacionada con la fricción es la presente en cada superficie, no la resultante.)
+		$$ \boxed{ a = g\qty(\sin{\theta} - \sqrt{2} \mu _k \cos{\theta}). } $$
+\end{mdframed}
+
+
+
+
+
+
+
+
+\begin{mdframed}[style=warning]
+	\begin{ejercicio}
+		Un bloque pequeño de masa $m$ se coloca dentro de un cono invertido que gira sobre un eje vertical, de modo que la duración de una revolución del cono es $T$. La pared del cono forma un ángulo $\beta$ con la horizontal. El coeficiente de fricción estática entre el bloque y el cono es $\mu _s$. Si el bloque debe mantenerse a una altura constante $h$ sobre el vértice del cono. ¿Cuáles son el valor máximo y mínimo de $T$?
+	\end{ejercicio}
+	\noindent \textbf{Solución: } \\
+	Primero, es necesario saber que pasa con el bloque para cada uno de los casos. Para el caso del periodo máximo, se tiene un tiempo por fuelta muy alto, por ende una frecuencia muy baja, el bloque tiende a deslizarse hacia abajo. Con esto, el diagrama de cuerpo libre del bloque sería:
+		\begin{center}
+			\input{ej5_dcl1}
+		\end{center}
+	Con esto, solo es necesario realizar un poco de geometría para encontrar cada uno de los ángulos (tanto para la normal, como para la fricción) y realizamos la sumatoria de fuerzas para cada uno de los ejes (ojo que no rotamos el plano, la aceleració centrípeta va en dirección horizontal hacia el eje del cono). Reemplazando directamente $f = \mu N$.
+	\begin{align*}
+		\sum F_x &= ma_c \\
+		m\frac{4\pi ^2 h}{T_{\text{MAX}} ^2 \tan{\beta}} &= N\sen{\beta} - \mu N \cos{\beta} \numberthis \label{ej5_dcl1_x} \\
+		\sum F_y &= 0 \\
+		mg &= N\cos{\beta} + \mu \sin{\beta}. \numberthis \label{ej5_dcl1_y}
+	\end{align*}
+	Se divide \eqref{ej5_dcl1_y} entre \eqref{ej5_dcl1_x} y se despeja el periodo
+		$$ \boxed{ T_{\text{MAX}} = 2\pi \sqrt{\frac{h}{g\tan{\beta}} \frac{\cos{\beta} + \mu \sin{\beta}}{\sin{\beta} - \mu \cos{\beta}} } . } $$
+		
+	Ahora, para el periodo mínimo se tiene lo opuesto, la frecuencia es alta y el bloque tiende a salir del cono, por lo que el diagrama de cuerpo libre sería:
+	\begin{center}
+		\input{ej5_dcl2}
+	\end{center}
+	El procedimiento es el mismo
+	\begin{align*}
+		\sum F_x &= ma_c \\
+		m\frac{4\pi ^2 h}{T_{\text{MIN}} ^2 \tan{\beta}} &= N\sen{\beta} + \mu N \cos{\beta} \numberthis \label{ej5_dcl2_x} \\
+		\sum F_y &= 0 \\
+		mg &= N\cos{\beta} - \mu \sin{\beta}. \numberthis \label{ej5_dcl2_y}
+	\end{align*}
+	Se divide \eqref{ej5_dcl2_y} entre \eqref{ej5_dcl2_x} y se despeja el periodo
+		$$ \boxed{ T_{\text{MIN}} = 2\pi \sqrt{\frac{h}{g\tan{\beta}} \frac{\cos{\beta} - \mu \sin{\beta}}{\sin{\beta} + \mu \cos{\beta}} } . } $$
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+\begin{mdframed}[style=warning]
+	\begin{ejercicio}
+		En la figura se muestra un sistema mecánico que consiste en tres carritos, $A$, $B$ y $C$ de masas $m_1$, $m_2$ y $m_3$ respectivamente. Los carros $A$ y $B$ estan conectados por una cuerda ligera e inelástica que pasa por una polea ideal fijada en $C$. Para este problema se ignora la fuerza de fricción.
+	\begin{enumerate}
+		\item Una fuerza horizontal $\vec{F}$ es aplicada al carro $C$. El tamaño de $\vec{F}$ es tal qeu los carritos $A$ y $B$ se mantienen en reposo respecto al carro $C$.
+		\begin{enumerate}[a)]
+			\item Encuentre la tensión de la cuerda que conecta los carritos $A$ y $B$.
+			\item Determine la magnitud de $\vec{F}$.
+		\end{enumerate}
+		\item Luego, el carro $C$ se detiene. Mientras que los carritos $A$ y $B$ se sueltan desde el reposo.
+		\begin{enumerate}[a)]
+			\item Determine las aceleraciones de los carritos $A$ y $B$.
+			\item Calcule la tensión de la cuerda.
+		\end{enumerate}
+	\end{enumerate}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.4]{./img/carrito.png}
+			\caption{Ejercicio 6}
+		\end{figure}
+	\end{ejercicio}
+	\noindent \textbf{Solución: } \\
+	\begin{enumerate}[1)]
+		\item Se tiene una fuerza $\vec{F}$ aplicada al carrito $C$ de tal modo que los carritos $A$ y $B$ se mantienen en reposo respecto a $C$.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{./img/ej6_dcl1.png}
+			\caption{DCL caso 1, ejercicio 6.}
+			\label{dcl_ej6_1}
+		\end{figure}
+		
+		\begin{enumerate}[a)]
+			\item La tensión la podemos encontrar enalizando cualquiera de los bloques $A$ o $B$, sabiendo que $T_1 = T_2$
+			$$ \boxed{ T = m_2 a = m_1 g. } $$
+			\item La magnitud de la fuerza la podemos encontrar trabajando con el sistema en conjunto
+				$$ F = (m_1 + m_2 + m_3) a, $$
+			y de lo encontrado en el inciso anterior se tiene la aceleración $a = m_1 g/m_2$, entonces
+				$$ \boxed{ F = (m_1 + m_2 + m_3) \frac{m_1}{m_2} g. } $$
+		\end{enumerate}		
+		
+		\item Ahora se tiene a $C$ en reposo, y las masas $A$ y $B$ se empiezan a mover desde el reposo. 
+		\begin{enumerate}[a)]
+			\item La aceleración de las dos masas es la misma en magnitud, esto gracias a la "idealización" del problema. Entonces, analizando el movimiento conjunto de las dos masas, se tiene
+			$$ (m_1 + m_2) a = m_1 g, $$
+		despejando
+			$$ \boxed{ a = \frac{m_1}{m_1 + m_2} g. } $$
+			\item Para la masa $B$ se tiene la igualdad $T = m_2 a$. Reemplazando el valor encontrado de la aceleración en el inciso anterior
+			$$ \boxed{ T = \frac{m_1 m_2}{m_1 + m_2} g. } $$
+		\end{enumerate}	
+	\end{enumerate}
+\end{mdframed}
+
+
+
+
+
+\begin{mdframed}[style=warning]
+	\begin{reto}
+		Un prisma triangular de masa $M$ se encuentra en un plano horizontal sin fricción. Los otros dos lados del prisma están inclinados respecto al plano unos ángulos $\alpha _1$ y $\alpha _2$ respectivamente. Dos bloques de masa $m_1$ y $m_2$, conectados por unna cuerda inelástica que pasa por una polea ideal.
+	\begin{itemize}
+		\item Exprese la aceleración $a$ de los bloques relativas al prisma en términos de la aceleración $a_o$ del prisma.
+		\item Encuentre la aceleración $a_o$ del prisma en términos de las cantidades conocidas.
+		\item ¿A qué razón $m_1 /m_2$ el prisma estará en equilibrio?
+	\end{itemize}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.7]{./img/cunamovil.png}
+			\caption{Reto.}
+		\end{figure}
+	\end{reto}
+	\noindent \textbf{Solución: } \\
+	No les compartiré solución de este problema, aún. Como les mencioné en el taller, les recomiendo intentar los problemas de \textit{"La Cuña Móvil"} y \textit{"Máquina de Atwood"} mostrados en el libro de Zemansky $13ed$. Luego de comprender esos problemas, reintenten este. Al final del semestre les compartiré la solución.
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%
