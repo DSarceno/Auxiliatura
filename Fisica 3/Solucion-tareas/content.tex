@@ -192,6 +192,47 @@ Si el factor es de $2$, el valor de la resistencia es de $R = 14\Omega$.
 
 
 
+\section*{Tarea 11 (P28.55)}
+
+\begin{enumerate}[a)]
+	\item Encontramos la resistencia de cada foco, que es la misma, por ende
+			$$ R = \frac{\Delta V ^2}{\mathcal{P}} = 240 \Omega . $$
+		Con esto, se encuentra la resistencia equivalente
+			$$ R_e = R + \qty(\frac{1}{\frac{1}{R} + \frac{1}{R}}) = 60\Omega , $$
+		entonces, $\mathcal{P} = \flatfrac{120^2}{360} = \boxed{40W.}$
+	\item Ahora, para el foco $1$, se tiene que la corriente es $I = \sqrt{\flatfrac{\mathcal{P}}{R_e}} = 1/3 A$, entonces $\Delta V_1 = I R = \boxed{80V}$. Para el foco $2$ y $3$ se tiene el mismo voltaje en ambos, por lo que utilizando ese arreglo en conjunto se tiene
+		$$ \Delta V_{23} = \qty(\frac{1}{3} A) \frac{1}{\frac{1}{R} + \frac{1}{R}} = \boxed{40V.} $$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Tarea 12 (P30.11)}
+
+Se sabe que para un conductor recto el campo es
+	$$ B = \frac{\mu _o I}{2\pi r}. $$
+\begin{description}
+	\item[A:] Por la regla de la mano derecha se tiene el siguiente valor para el campo en $A$
+		$$ B_A = B_1 \cos{\pi /4} + B_2 \cos{\pi /4} + B_3, $$
+			con $B_1 = B_2$
+				$$ B_A = 2\qty(\frac{\mu _o I}{2\pi a\sqrt{2}}) \cos{\pi /4} + \frac{\mu _o I}{2\pi (3a)} = \boxed{ 53.3\mu T \, \downarrow . } $$
+	\item[B:] Dado que $B_1 = -B_2$, se tiene
+		$$ B_B = B_3 = \frac{\mu _o I}{2\pi (2a)} = \boxed{ 20\mu T \, \downarrow . } $$
+	\item[C:] Este caso es parecido a $A$, pero las componentes de $B_1$ y $B_2$ van hacia arriba, entonces
+		$$ B_C = 2\qty(\frac{\mu _o I}{2\pi a\sqrt{2}}) \cos{\pi /4} - \frac{\mu _o I}{2\pi a} = \boxed{ 0T. } $$
+\end{description}
+
 
 
 
