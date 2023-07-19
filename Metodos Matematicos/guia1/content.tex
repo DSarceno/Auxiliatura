@@ -1,0 +1,248 @@
+%\vspace{1cm}
+\section*{Introducción}
+A lo largo del curso de Métodos Matemáticos, iremos trabajando con diferentes espacios estudiando sus características principales e incrementando cada vez en complejidad estructural. A continuación se muestra un pequeño diagrama que muestra los niveles de complejidad de cada uno de los espacios que estudiaremos.
+
+\begin{center}
+	\input{grafico}
+\end{center}
+
+Además, se utilizará lo aprendido en cursos previos, tales como: Álgebra lineal 1 (y 2 en caso de haberla cursado), Electromagnetismo y ecuaciones diferenciales parciales. Con lo que se harán referencias a ello. \\
+
+\section*{Espacios Euclídeos}
+
+Para poder definir lo que es un espacio Euclídeo es necesario definir una nueva operación, distinta a las que caracterízan los espacios lineales (vectoriales).
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Producto Interno}} \\
+	El producto interno (conocido también como producto escalar) es una función que cumple los siguientes axiomas:
+	\begin{equation}
+		\langle \cdot , \cdot \rangle \, : \, V\times V \to \F , \nonumber
+	\end{equation}
+	con $\F$ el campo sobre el cual esta el espacio ($\R$ o $\C$ para este curso) y $V$ el espacio como tal.
+	\begin{description}
+		\item[Lineal] respecto al segundo argumento,
+			$$ \inner{z}{\alpha x + \beta y} = \alpha \inner{z}{x} + \beta \inner{z}{y}, $$	
+		\item[Hermítico] esta propiedad es llamada simetría para un espacio real,
+			$$ \inner{x}{y} = \inner{y}{x} ^*. $$
+		\item[Semidefinido Positivo]
+			$$ \inner{x}{x} \geq 0, \quad \text{y} \quad \inner{x}{x} = 0 \, \Leftrightarrow \, x = 0. $$
+	\end{description}
+	Ojo, que los primeros dos axiomas implican que el producto interno en un espacio complejo es \textit{sesquilineal}, mientras que en un espacio real es \textit{bilineal}.
+\end{mdframed}
+
+Esta forma definida, bajo los tres axiomas mencionados, en un espacio vectorial le da la estructura de un espacio euclídeo.
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Espacio Euclídeo}} \\
+	Un espacio vectorial/lineal Euclídeo es un espacio finito dimensional equipado con producto interno.
+\end{mdframed}
+
+\section*{Norma y Métrica}
+Dada la positividad del producto interno es posible definir una nueva operación llamada norma.
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Norma}} \\
+	Una norma es una función que toma elementos de un espacio y les asigna un escalar, se define bajo los siguientes axiomas:
+	$$ \norm{\cdot} \, : \, V\to \R . $$
+	\begin{description}
+		\item[Semidefinido Positivo] 
+			$$ \norm{x} \geq 0, \quad \text{y} \quad \norm{x} = 0 \, \Leftrightarrow \, x = 0. $$
+		\item[Homogeneidad] 
+			$$ \norm{\lambda x} = \abs{\lambda} \norm{x}, \, \lambda \in \F . $$
+		\item[Subaditividad] (desigualdad triangular)
+			$$ \norm{x + y} \leq \norm{x} + \norm{y}. $$
+	\end{description}
+	Esto da pie a un resultado interesante, La Desigualdad de Cauchy$-$Schwartz
+		$$ \abs{\inner{x}{y}} ^2 \leq \norm{x} ^2 \norm{y} ^2. $$
+\end{mdframed}
+
+"Debemos destacar que la ley que define la norma en un espacio lineal normado puede ser
+muy diversa, en dependencia de la naturaleza de los elementos que forman el espacio." - Marín Antuña. \\
+
+El siguiente concepto suele ser algo "\textit{Tricky}" al estudiarlo más a profundidad y jugar un poco con las posibilidades que este concepto abre.
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Métrica}} \\
+	Una métrica es una función $\rho$ que proporciona una noción de distancia entre dos puntos en un espacio abstracto, se define bajo los siguientes axiomas:
+	$$ \rho \, : \, V\times V \to \R. $$
+	\begin{description}
+		\item[Simetría]
+			$$ \metric{x}{y} = \metric{y}{x}. $$
+		\item[Identidad de los Indiscernibles]
+			$$ \metric{x}{y} = 0 \quad \Leftrightarrow \quad x = y. $$
+		\item[Desigualdad Triangular]
+			$$ \metric{x}{y} \leq \metric{x}{z} + \metric{z}{y}. $$
+		\item[Semidefinida Positiva]
+			$$ \metric{x}{y} \geq 0. $$
+	\end{description}
+\end{mdframed}
+
+
+
+\section*{Ortogonalidad}
+
+Los conceptos de Independencia lineal, base y base ortonormal ya deberían de estar claros. Dado esto, se recordará el método de ortonormalización de Gram-Schmidt. Recordando, la base ortonormal ($\{ e_1 ,\cdots , e_n \}$) cumple con que cada elemento tiene norma $1$: $\inner{e_i}{e_j} = \delta _{ij}$ y los coeficientes para generar cualquier vector del espacio tienen la siguiente forma $c_i = \inner{e_i}{x}$ (estos coeficientes se conocen como \textit{Coeficientes de Fourier}), de modo que
+	$$ x = \sum _{i = 1} ^n c_i e_i, \quad \forall x \in V. $$
+	
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Proceso de Ortonormalización de Gram-Schmidt}} \\
+	Sea $x_1 , \ldots , x_n$ un conjunto linealmente independiente. Tomando $e_1 = \flatfrac{x_1}{\norm{x_1}}$. Para $i = 2,\ldots ,n$, se define $e_i$ como
+		$$ e_i = \frac{ x_i - \inner{x_i}{e_1} e_1 - \cdots - \inner{x_i}{e_{i - 1}} e_{i - 1} }{ \norm{ x_i - \inner{x_i}{e_1} e_1 - \cdots - \inner{x_i}{e_{i - 1}} e_{i - 1} } }. $$
+	Entonces $e_1 ,\ldots ,e_n$ es un conjunto ortonormal de vectores tal que
+		$$ \text{span} (x_1 , \ldots , x_n) = \text{span} (e_1 ,\ldots ,e_n). $$
+	\textit{Una buena praxis para la comprensión de este procedimiento sería programarlo.}
+\end{mdframed}
+
+
+
+\pagebreak
+
+
+\section*{Problemas}
+
+\begin{ejercicio}
+	Demuestre que la función que toma $\inner{(x_1 ,x_2)}{(y_1 , y_2)}$ y lo mapea en $\abs{x_1 y_1} + \abs{x_2 y_2}$ no es un producto interno en $\R ^2$.
+\end{ejercicio}
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Pruebe que
+		$$ 16 \leq \qty(a + b + c + d)\qty(\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}) $$
+	para todo número positivo $a,b,c,d$.
+\end{ejercicio}
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre que la función definida como $\norm{x} = \sqrt{\inner{x}{x}}$ induce una norma.
+\end{ejercicio}
+
+
+
+\begin{ejercicio}
+	Suponga $V$ un espacio con producto interno y $u,v \in V$. Demuestre la identidad del paralelogramo
+		$$ \norm{u + v} ^2 + \norm{u - v} ^2 = 2\qty(\norm{u} ^2 + \norm{v} ^2). $$
+	\textit{Dato importante\footnote{Problema $1.1.8$ Beginning Functional Analysis - Saxe} Todo espacio normado en el que se cumple la identidad del paralelogramo es también un espacio con producto interno.}
+\end{ejercicio}
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Pruebe or refute que existe un producto interno en $\R ^2$ tal que la norma asociada está dada por
+		$$ \norm{(x,y)} = \text{max}\{ \abs{x},\abs{y} \} $$
+	para todo $(x,y) \in \R ^2$.
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Cosidere las normas $\norm{\cdot} _1$ y $\norm{\cdot}_\infty$\footnote{$\norm{x}_\infty = \text{max}\{ \abs{x_1},\ldots ,\abs{x_n} \}, \quad x\in \R ^n$} en $\R ^n$. Pruebe que 
+		$$ \norm{x} = \frac{1}{3} \norm{x}_1 + \frac{2}{3} \norm{x}_\infty $$
+	define una norma en $\R ^n$.
+\end{ejercicio}
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre que la norma suprema\footnote{$\norm{f}_\infty = \sup{\abs{f(x)}, \, x \in [a,b]}$.} en $C([a,b])$ no puede venir de un producto interno.
+\end{ejercicio}
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Considere los polinomios de Legendre
+		$$ P_n (x) = \frac{1}{2^n n!} \dv[n]{x} \qty[(x^2 - 1)^n], \qquad x\in [-1,1], $$
+	con el producto interno dado por
+		$$ \inner{p}{q} = \int _{-1} ^{1} p(x) q(x) \dd{x}. $$
+	Demuestre que 
+		$$ \inner{P_n}{P_m} = \frac{2}{2n + 1} \delta _{nm}. $$
+\end{ejercicio}
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre que el espacio $l^n _p$ de los vectores $x = (x_1 ,\ldots ,x_n)$ con la norma:
+		$$ \norm{x} = \sqrt[p]{\sum _{k = 1} ^n \abs{x_n} ^p}. $$
+	Es, en efecto, un espacio normado.
+\end{ejercicio}
+
+
+
+
+
+\begin{ejercicio}
+	Suponga que $n$ es un entero positivo. Pruebe que 
+		$$ \frac{1}{\sqrt{2\pi}}, \frac{\cos{x}}{\sqrt{\pi}}, \frac{\cos{2x}}{\sqrt{\pi}},\ldots ,\frac{\cos{nx}}{\sqrt{\pi}}, \frac{\sin{x}}{\sqrt{\pi}}, \frac{\sin{2x}}{\sqrt{\pi}},\ldots ,\frac{\sin{nx}}{\sqrt{\pi}}  $$
+	es una lista ortonormal de vectores en $C[-\pi,\pi]$.
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	¿Qué pasa si el procedimiento de Gram-Schmidt es aplicado a una lista de vectores que no es linealmente independiente?
+\end{ejercicio}
+
+
+
+\begin{ejercicio}
+	Demuestre que las siguientes funciones son métricas
+	\begin{enumerate}[a)]
+		\item $\metric{x}{y} = \sqrt{\abs{x - y}}$.
+		\item $\metric{(x_1 ,x_2)}{(y_1 ,y_2)} = \abs{x_1 - x_2} + \abs{y_1 - y_2}$. (A esta se le conoce como métrica de Manhattan o del taxista)
+		\item $\bar{\rho} (x,y) = \frac{\metric{x}{y}}{1 + \metric{x}{y}}$, con $\metric{x}{y}$ una métrica.
+	\end{enumerate}
+	\textit{Reto: Describa el "circulo unitario" centrado en el origen para cada una de estas métricas.}
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+%%%%
