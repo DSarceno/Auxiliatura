@@ -1,0 +1,127 @@
+%\vspace{1cm}
+\section*{Introducción}
+Así como se mencionó en el taller anterior, es necesario conocer un poco de análisis de variable real. En esta guía se expondrán definiciones y algunos teoremas útiles para lo que viene, así como algunos problemas para asentar lo visto. Se trabajará en espacios métricos, teniendo en mente que tanto los espacios normados y con producto interno son espacios métricos.
+
+\section*{Sucesiones}
+
+A pesar de que el término \textit{sucesión} (o \textit{secuencia} como también se le conoce) es bastante intuitivo, nunca está de más repasarlo.
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Sucesión/Secuencia}} \\
+	Una sucesión (definida en los reales) es una función definida de los naturales al espacio de los reales.
+		$$ X\, :\, \N \to \R . $$
+	Usualmente se denota a las sucesiones como $\seque{x}{n}$. Esta definición también aplica para espacios métricos
+\end{mdframed}
+
+Dado que existen infinitas posibilidades para hacer sucesiones, estas pueden tener diferentes características, oscilar alrededor de un valor, tener un único valor asociado en $\R$, crecer/decrecer indefinidamente, tender hacia un valor específico, etc. En concreto nosotros nos enfocaremos en aquellas sucesiones que tienden a un valor.
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Sucesiones Convergentes}} \\
+	Se dice que una sucesión $\seque{x}{n}$ en un espacio métirco, \textit{converge} si hay un punto $x$ en el espacio con las siguientes propiedades: para cada $\varepsilon > 0$, existe un número entero $N$ tal que $n\geq N$ implica que $\metric{x_n}{n} < \varepsilon$ ($\rho$ es la métrica en el espacio). En este caso se dice que $\seque{x}{n}$ converge hacia $x$, a este $x$ se le conoce como el \textit{límite} de $\seque{x}{n}$.
+	
+\end{mdframed}
+
+
+
+Recomiendo leer superficialmente los las secciones $3.1-3.5$ del libro de Bartle, las secciones respectivas en el libro de Walter Rudin son un poco más complicadas de llevar ya que el libro es más formal y utiliza conceptos utilizados en topología, pero igual lo recomiendo. \\
+
+Ahora, ya sabiendo que se debe de cumplir para que una sucesión sea convergente, es necesario dar el concepto de sucesión de cauchy. Ya se verá la importancia de ese concepto más adelante en el curso.
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Sucesiones de Cauchy}} \\
+	Se dice que una sucesión $\seque{x}{n}$ en un espacio métrico es una \textit{sucesión de Cauchy} si para todo $\varepsilon > 0$, hay un entero $N$ tal que $\metric{x_n}{x_m} < \varepsilon$ si $n\geq N$ y $m\geq N$. \\
+	
+	\noindent \textit{Otra definición interesante e incluso "bonita" es la mostrada en el libro de Walter Rudin, definición $3.9$.}
+\end{mdframed}
+
+De este teorema se presenta un criterio importante:
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Criterio de Convergencia de Cauchy}} \\
+	Una sucesión es convergente si y solo si es una sucesión de Cauchy.
+\end{mdframed}
+
+Y si toda sucesión de Cauchy converge en un espacio métrico, se dice que este es completo.
+
+
+
+
+
+
+\pagebreak
+
+
+\section*{Problemas}
+
+
+
+\begin{ejercicio}
+	Calcular el límite de las siguientes sucesiones:
+	\begin{itemize}
+		\item $\sqrt{n^2 + n} - n$.
+		\item $\frac{1}{n} + \frac{1}{n + 1}$.
+		\item $\qty(2n)^{\flatfrac{1}{n}}$.
+	\end{itemize}
+\end{ejercicio}
+
+
+
+
+
+
+\begin{ejercicio}
+	Usando la definición, determine cuales de estas son sucesiones de Cauchy:
+	\begin{itemize}
+		\item $1 + \frac{1}{2!} + \cdots + \frac{1}{n!}$.
+		\item $n + \frac{(-1)^n}{n}$.
+	\end{itemize}
+\end{ejercicio}
+
+
+
+
+
+
+\begin{ejercicio}
+	Demostrar que la convergencia de $\seque{s}{n}$ implica la de $\{ \abs{s_n} \}$. ¿Es verdad la inversa?
+\end{ejercicio}
+
+
+
+
+\begin{ejercicio}
+	Demuestre, usando la definición, que si $\seque{x}{n}$ y $\seque{y}{n}$ son sucesiones de Cauchy, entonces $\{ x_n + y_n \}$ y $\{ x_n y_n \}$ son sucesiones de Cauchy.
+\end{ejercicio}
+
+
+\begin{ejercicio}
+	Supongamos que $\seque{p}{n}$ y $\seque{q}{n}$ son sucesiones de Cauchy en un espacio métrico. Demostrar que la sucesión $\{ \metric{p_n}{q_n} \}$ converge. \\\\
+	\noindent \textit{Hint: para cada $m$ y $n$;}
+		$$ \metric{p_n}{q_n} \leq \metric{p_n}{p_m} + \metric{p_m}{q_m} + \metric{q_m}{q_n} $$
+	\noindent \textit{se deduce que}
+		$$ \abs{\metric{p_n}{q_n} - \metric{p_m}{q_m}} $$
+	\noindent \textit{es pequeño si $m$ y $n$ son grandes.}
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%
