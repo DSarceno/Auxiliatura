@@ -1,0 +1,133 @@
+\section*{Rotación de Cuerpos Rígidos}
+
+
+Para la parte de cinemática, se tiene la relación entre el movimiento lineal (MRU y MRUV), con el movimiento cinético rotacional.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{||c|c||}
+		\hline
+		\hline
+			Lineal & Rotacional \\
+		\hline
+		\hline
+			$x_f = x_o + vt$ & $\theta _f = \theta _o + \omega t$ \\
+		\hline
+			$v_f = v_o + at$ & $\omega _f = \omega _o + \alpha t$ \\
+			$x_f = x_o + v_o t + \frac{1}{2} at^2$ & $\theta _f = \theta _o + \omega _o t + \frac{1}{2} \alpha t^2$ \\
+			$v_f ^2 = v_o ^2 + 2a\Delta x$ & $\omega _f ^2 = \omega _o ^2 + 2\alpha \Delta \theta$ \\
+			$x_f = \qty(\frac{v_f + v_o}{2})t$ & $\theta _f = \qty(\frac{\omega _f + \omega _o}{2})t$ \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection*{Energía}
+Tomando un sistema de partículas que rota respecto a su centro de masa con velocidad angular $\omega$, la energía cinética de una de las partículas es
+	$$ \frac{1}{2} m_i v_i ^2 = \frac{1}{2} m_i r_i ^2 \omega ^2, $$
+ahora, para la energía total
+	$$ K = \sum _i \frac{1}{2} m_i r_i ^2 \omega ^2 $$
+	$$ K = \frac{1}{2} \underbrace{\qty(\sum _i m_i r_i ^2)}_{\text{Definición de momento de inercia.}} \omega ^2. $$
+
+Entonces, la energía cinética rotacional se define como
+	$$ K = \frac{1}{2} I\omega ^2. $$
+
+Con esto, se define el momento de inercia para un sistema discreto de partículas
+	$$ I = \sum _i m_i r_i ^2. $$
+Así como la masa se conoce como una resistencia al cambio de movimiento lineal, es lo mismo el momento de inercia para el movimiento rotacional. Este toma en cuenta la distribución de masa del sistema y depende de la posición del eje de rotación. Por esto mismo, se tiene una definición más general, para una distribución continua de masa.
+	$$ I = \int _m r^2 \dd{m} = \int _V \rho r^2 \dd{V}. $$
+
+Como se mencionó anteriormente, el momento de inercia depende  del eje sobre el cual rota el sistema. Existen infinitos ejes sobre los cuales puede rotar un sistema, y estos estan relacionados con el momento de inercia de centro de masa (sobre un eje que pasa por el centro de masa).
+	$$ I_p = I_{cm} + Md^2, $$
+donde $d$ es la distancia entre el nuevo eje y el de centro de masa, cabe recalcar que los ejes relacionados deben de ser paralelos. A esto se le conoce como el \textbf{teorema de ejes paralelos}.
+
+\subsection*{Dinámica del Movimiento de Rotación}
+
+El análogo rotaciona a la fuerza se le conoce como Torca o Torque
+	$$ \vec{\tau} = \vec{r} \cp \vec{F}. $$
+Esto, tiene una forma que es análoga a la segunda ley de Newton
+	$$ \sum \vec{\tau} = I \vec{\alpha}. $$
+
+
+Para un objeto rotando con un eje móvil:
+	$$ K = \frac{1}{2} Mv_{cm} ^2 + \frac{1}{2} I \omega ^2. $$
+En donde es clara la contribución traslacional y la rotacional. Y se tiene una relación interesante para un objeto que rueda sin resbalar se cumple lo siguiente $v_{cm} = R\omega$.
+
+
+
+
+
+
+\pagebreak
+
+
+
+
+\subsection*{Ejemplos}
+
+\begin{mdframed}[style=warning]
+	\begin{ejemplo}
+		Un bloque cuadrado de masa $m$ y lado $l$ descansa en reposo sobre una mesa con su esquina inferior derecha sujetada a la mesa con un pivote. Una bola también de masa $m$ se mueve horizontalmente hacia la derecha con velocidad $v$ y choca con la esquina superior izquierda y se queda adherida al bloque. El momento de inercia del bloque respecto a su centro es $ml^2 /6$. $a)$ Justamente después del impacto ¿Cuál es la velocidad angular del sistema respecto al pivote? $b)$ ¿Cuál es el valor mínimo de $v$ para que el bloque se voltee hacia el otro lado? \\[0.5cm]
+		\noindent \textit{\textbf{Solución: }} \\
+		\textit{(a)} El punto del pivote es el eje de rotación, por ende, encontramos el momento de inercia del sistema (luego de la colisión) respecto a ese punto.
+			$$ I_p = m(\sqrt{2} l)^2 + \frac{1}{6} ml^2 + m\qty(\frac{\sqrt{2} l}{2})^2. $$
+		Por conservación del momento angular
+			$$ \Delta L = 0 $$
+			$$ mvl = \qty(m(\sqrt{2} l)^2 + \frac{1}{6} ml^2 + m\qty(\frac{\sqrt{2} l}{2})^2) \omega , $$
+			$$ v = \omega \qty(2l + \frac{1}{6} l + \frac{1}{2} l) $$
+			$$ \boxed{ \omega = \frac{3v}{8l}. } $$
+			
+		\textit{(b)} Para encontrar la velocidad mínima se tiene que la velocidad de centro de masa en el punto más alto es cero. Por conservación de energía
+			$$ \underbrace{mgl + mg\frac{l}{2}}_{\frac{3mgl}{2}} + \frac{1}{2} \underbrace{\qty(m(\sqrt{2} l)^2 + \frac{1}{6} ml^2 + m\qty(\frac{\sqrt{2} l}{2})^2)}_{\frac{8}{3} ml^2} \omega ^2 = \underbrace{mg \qty(\sqrt{2} l) + mg\qty(\frac{\sqrt{2}}{2} l)}_{\frac{3\sqrt{2} mgl}{2}} $$
+		Simplificando y reemplazando la velocidad angular encontrada en el inciso anterior
+			$$ \frac{3}{2} \frac{1}{8} v^2 = \frac{3}{2} gl \qty(\sqrt{2} - 1) $$
+			$$ \boxed{ v = \sqrt{8gl \qty(\sqrt{2} - 1)}. } $$
+	\end{ejemplo}
+\end{mdframed}
+
+
+
+\pagebreak
+
+
+
+\begin{mdframed}[style=warning]
+	\begin{ejemplo}
+		Se hace un yoyo enrollando una cuerda con masa despreciable varias veces alrededor de un cilindro sólido de masa $M$ y radio $R$. Se sostiene el extremo de la cuerda fija mientras se suelta el cilindro desde el reposo. La cuerda se desenrolla sin resbalar ni estirarse conforme el cilindro cae y gira. Use consideraciones de energía y dinámica para calcular la rapidez de centro de masa después de caer una altura $h$. \\[0.5cm]
+		\noindent \textit{\textbf{Solución: }} \\
+		\textit{Por energía:} En el punto inicial se tiene solo energía potencial. Mientras que en el punto final se tiene energía cinética lineal y rotacional; además de cumplirse la condición de rodar sin resbalar. Por ende (la inercia del yoyo es la de un cilindro $\frac{1}{2} mr^2$):
+			$$ \Delta E = 0 $$
+			$$ mgh = \frac{1}{2} \qty(\frac{1}{2} mR^2) \qty(\frac{v_{cm}}{R})^2 + \frac{1}{2} mv_{cm} ^2 .  $$
+		Simplificando
+			$$ \boxed{ v_{cm} = \sqrt{\frac{4}{3} gh}. } $$
+			
+		\textit{Por dinámica:} Tomando el punto de referencia el punto de contacto de la cuerda con el cilindro (cambiando el momento de inercia utilizando el teorema de ejes paralelos), es claro que la única fuerza que realiza torque es el peso, cuyo torque es positivo (dado que va a favor de la aceleración angular). Entonces
+			$$ \sum \tau = I_p \alpha $$
+			$$ mgR = \qty(\frac{1}{2} mR^2 + mR^2) \alpha $$
+		Despejando y utilizando la relación de rodar sin resbalar para la acerleración angular y de centro de masa
+			$$ \frac{3}{2} R\alpha = g \qquad \to \qquad a_{cm} = \frac{2}{3} g. $$
+		Por cinemática, se tiene que la velocidad de centro de masa es
+			$$ \boxed{ v_{cm} = \sqrt{\frac{4}{3} gh} } $$
+	\end{ejemplo}
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%
