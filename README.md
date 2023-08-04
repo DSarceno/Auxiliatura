@@ -8,7 +8,12 @@ Repositorio dedicado a los programas y archivos creados para la auxiliatura de c
 
 
 ## Cursos
- - [Física 1](./Física \1/)
+ - [Física 1](https://github.com/DSarceno/Auxiliatura/tree/main/Fisica%201)
+ - [Fisica 2](https://github.com/DSarceno/Auxiliatura/tree/main/Fisica%202)
+ - [Fisica 3](https://github.com/DSarceno/Auxiliatura/tree/main/Fisica%203)
+ - [Fisica Moderna](https://github.com/DSarceno/Auxiliatura/tree/main/Fisica%20Moderna)
+ - [Mecanica Clasica](https://github.com/DSarceno/Auxiliatura/tree/main/Mecanica%20Clasica)
+ - [Metodos Matematicos](https://github.com/DSarceno/Auxiliatura/tree/main/Metodos%20Matematicos)
 
 
 
