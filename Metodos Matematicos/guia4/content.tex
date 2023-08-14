@@ -1,0 +1,175 @@
+%\vspace{1cm}
+\section*{Introducción}
+Ya con la idea de sucesiones convergentes, sucesiones de Cauchy/Fundamentales se introduce el concepto de completitud en los espacios anteriormente vistos. Con esto, empieza a ser clara la importancia que esto tiene en la física. Para esta guía y para esta etápa del curso se recomienda leer el capítulo $2$ del libro de \textit{Falomir}
+
+\section*{Espacios de Bannach}
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Completitud}} \\
+	Un espacio se llama \textbf{completo} si toda sucesión fundamental (de Cauchy) en él converge a un elementode dicho espacio.
+\end{mdframed}
+
+
+Y, los espacios lineales normados completos se conocen como \textbf{espacios de Banach}. Los espacios finito dimensionales son completos y ahora veremos algunos ejemplos de espacios infinitos que cumplen con esta propiedad.
+
+\begin{itemize}
+	\item Espacios $l^p$, definiremos a este tipo de espacios lineales con una estructura similar a $\R ^n$ o $\C ^n$. Con la siguiente norma
+		$$ \norm{x} _p = \qty(\sum \abs{x_i} ^p)^{\frac{1}{p}}, \qquad \qquad 1 < p < \infty . $$
+	\item Espacios $l^\infty$, este es el límite de aplicar la norma anterior, lo que da la siguiente norma
+		$$ \norm{x}_\infty = \sup{\abs{x_i}}. $$
+	\item Espacio $C_{(a,b)}$, estas son las funciones continuas en el intervalo cerrado $[a,b]$ que mapean a los números reales con la norma del supremo
+		$$ f:C_{(a,b)} \to \R $$
+		$$ \norm{f} = \sum \sup{\abs{f^i (x)}}_{[a,b]}. $$
+\end{itemize}
+
+Un ejemplo de demostración de que un espacio es completo, lo puede encontrar en la página $2$ del siguiente \href{https://github.com/DSarceno/Auxiliatura/blob/main/Metodos\%20Matematicos/Apoyo/gmet4.pdf}{documento.}
+
+
+\pagebreak
+
+
+\section*{Espacios de Hilbert}
+
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Espacio de Hilbert}} \\
+	Un espacio de Hilbert es un espacio completo equipado con un producto interno.
+\end{mdframed}
+
+Algunos ejemplos de espacios de Hilbert que utilizaremos, son
+\begin{itemize}
+	\item Espacios $l^2$, tomando $l^2$ como el conjunto de sucesiones $\seque{x}{n} _{n = 1} ^\infty$ de números complejos que satisface $\sum _{n = 1} ^\infty \abs{x_n} ^2 < \infty$ con el siguiente producto interno
+		$$ \inner{\seque{x}{n} _{n = 1} ^\infty}{\seque{y}{n} _{n = 1} ^\infty} = \sum _{n = 1} ^\infty \bar{x} _n y_n . $$
+	\item Espacios $L_2 (a,b)$, se define como el conjunto de funciones de variable complejaen el intervalo $[a,b]$ que satisface $\int _a ^b \abs{f(x)}^2 \dd{x} < \infty$. Se define su producto interno como
+		$$ \inner{f}{g} = \int _a ^b \overline{f(x)} g(x) \dd{x} . $$
+\end{itemize}
+
+
+Nosotros trabajaremos en unos espacios de Hilbert llamados espacios de Lebesgue, cuyo producto interno es una generalización de la integral de Riemman, pero para lo que nos interesa, no existen diferencias. Los espacios $L_2$ es en donde está formulada la mecánica cuántica, en donde el producto interno es
+	$$ \braket{\psi} = \int \norm{\psi} ^2 < \infty . $$
+
+
+Los espacios de Hilbert con los que se trabaja en física son además \textit{separables}. La propiedad de separabilidad de un espacio $\Hilbert$ significa que existe un conjunto de vectores $V$ denso\footnote{Como ayuda, ver teorema $2.4.8$ "\textit{The density theorem}" del libro de Bartle.} en $\Hilbert$ y contable. Recordemos que los conjuntos numerables o contables son aquellos que pueden ser puestos en correspondencia uno a uno con los números naturales. Un ejemplo de un espacio separable es $\R ^n$, dado que $\Q ^n$ es numerable y denso en $\R ^n$.
+
+
+
+La dimensión de un espacio de Hilbert puede ser finita o infinita. Estamos particularmente interesados en el caso infinito dimensional y nos preguntamos si, en tal caso, es posible entontrar un conjunto de vectores ortonormales que generen todo el espacio. A dicho conjunto de vectores se le conoce como \textbf{sistema ortonormal completo.} El siguiente teorema es una condición necesaria y suficiente para la existencia de un sistema ortonormal completo contable en un espacio de Hilbert.
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Sistema Ortonormal Completo}} \\
+	Un espacio de Hilbert, $\Hilbert$, es separable si y solo si existe un conjunto ortonormal completo contable en $\Hilbert$. Sea $f\in \Hilbert$, y $\phi _1, \phi _2,\ldots$ un sistema ortonormal completo en un espacio infinito dimensional. Cada $f\in \Hilbert$ tiene representación
+		$$ f = \sum _{n = 1} ^\infty \alpha _n \phi _n .$$
+\end{mdframed}
+
+Ejemplos de sistemas ortonormales completos en espacios de Hilbert, en concreto, en $L_2 (a,b)$.
+
+\begin{itemize}
+	\item $\Hilbert = L_2 (0,1)$, $\phi _n = e^{2\pi i nx}$ con $n \in \Z$.
+	\item $\Hilbert = L_2 (-1,1)$, los polinomios de Legendre $P_n (x) = \frac{1}{2^n n!} \dv[n]{x} (x^2 - 1)^n$.
+	\item $\Hilbert = L_2 (\R)$, las funciones de Hermite $H _n (x) = \frac{1}{\sqrt{2^n n! \sqrt{\pi}}} e^{-\flatfrac{x^2}{2}}$.
+\end{itemize}
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Teorema de Representación de Riesz}} \\
+	En un espacio de Hilbert equipado con un producto interno es posible representar a cada elemento del dual\footnote{Revisar definición del espacio dual en el libro de Axler, Capítulo $3$, Sección $F$.} como el producto interno de un vector fijo único cuya norma es equivalente a la del funcional asociado.
+	\begin{align*}
+		\forall \, \phi &\in \Hilbert ^* \\
+		\forall \, x &\in \Hilbert \\
+		\phi (x) &= \inner{x}{z} \\
+		\norm{\phi (x)} &= \norm{x} .
+	\end{align*}
+\end{mdframed}
+
+
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Desigualdades Importantes}} \\
+	\begin{itemize}
+		\item \textbf{Desigualdad de Hölder: } Sean $p,q$ tales que $1 \leq q,p \leq \infty$ y $\frac{1}{q} + \frac{1}{p} = 1$. Entonces, se define la desigualdad de Hölder
+			$$ \norm{xy}_1 \leq \norm{x}_p \norm{y}_q .$$
+		Donde a $p,q$ se le conocen como los \textbf{conjugados de Hölder}. El caso de $p = q = 2$ es la desigualdad de \textit{Cauchy-Schwarz}. 
+		\item \textbf{Desigualdad de Minkowski: } Para espacios $L_p$, sea $1 \leq p \leq \infty$, se tiene
+			$$ \norm{f + g}_p \leq \norm{f}_p + \norm{g}_p. $$
+		Al igual que la desigualdad de Hölder, la desigualdad de Minkowski se puede especificar para sucesiones y vectores
+			$$ \qty(\sum _{k = 1} ^n \abs{x_k + y_k} ^p)^{\flatfrac{1}{p}} \leq \qty(\sum _{k = 1} ^n \abs{x_k} ^p)^{\flatfrac{1}{p}} + \qty(\sum _{k = 1} ^n \abs{y_k} ^p)^{\flatfrac{1}{p}}. $$
+		\item \textbf{Desigualdad de Bessel: } Suponga que $e_1 , e_2 , \ldots$ una secuencia ortonormal en $\Hilbert$. Entonces, para todo $x$ en $\Hilbert$ se tiene que
+			$$ \sum _{k = 1} ^\infty \abs{\inner{x}{e_k}}^2 \leq \norm{x} ^2. $$
+		Si se define la suma infinita
+			$$ x^\prime = \sum _{k = 1} ^\infty \inner{x}{e_k} e_k , $$
+		La desigualdad de Bessel nos dice que la serie matemática converge.
+	\end{itemize}
+\end{mdframed}
+
+
+
+
+
+
+
+
+\pagebreak
+
+
+\section*{Problemas}
+
+
+
+\begin{ejercicio}
+	Demostrar que el espacio $l^2$ es un espacio lineal y es completo.
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demostrar que una secuencia ortonormal $\seque{x}{n}$ en un espacio de Hilbert, $\Hilbert$, es un sistema ortonormal completo si y solo si $\inner{x_n}{x} = 0$ para todo $n \in \N$ implica $x = 0$.
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Mostrar que el conjunto de polinomios de Legendre es completo en $L_2 (-1,1)$.
+\end{ejercicio}
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Investigue que es un espacio unitario y demuestre que una sucesión ortonormal $\seque{x}{n}$ en un espacio unitario $E$ es completa sí y solo sí 
+		$$ \norm{x}^2 = \sum _{n = 1} ^\infty \abs{\inner{x}{x_n}} ^2. $$
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+%%%%
