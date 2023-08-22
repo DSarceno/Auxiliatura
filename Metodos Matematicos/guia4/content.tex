@@ -54,7 +54,7 @@ Es claro que este operador es lineal (aditivo y homogeneo); más adelante se ver
 
 
 \begin{mdframed}[style=warning]
-	{\large \textbf{Proposiciones Útiles}} \\
+	{\large \textbf{Proposiciones Útiles}}
 	\begin{itemize}
 		\item Todo PSLR tiene un SOC\footnote{Sistema Ortonormal Completo.} asociado a un operador integral de Fredlhom y toda función $y$ que satisfaga las condiciones de contorno puede ser desarrollada en una expansión de fourier por ese SOC. De forma explícita tenemos la construción
 			$$ y(t) = Ax(t) = \sum \lambda _k \inner{e_k}{x} e_k (t) . $$
@@ -63,7 +63,59 @@ Es claro que este operador es lineal (aditivo y homogeneo); más adelante se ver
 	\end{itemize}
 \end{mdframed}
 
-PAGINA 6,7,8 gmet5
+\section*{Series de Fourier}
+
+Las series de Fourier son una herramienta básica en el análisis de Fourier empleado para analizar funciones periódicas a través de la descomposición de dicha función en una suma infinita de funciones sinusoidales (combinación lineal de funciones seno y coseno). Si recordamos bien, en la guía $1$ sabemos que dada una base ortonormal (ahora también completa) se tiene que un elemento cualquiera del espacio se puede escribir de la forma
+	$$ f = \sum _{n = 1} ^\infty c_n f_n, $$
+con $c_n$ son los llamados \textit{Coeficientes de Fourier} y $f_n = \mqty(\sin{\frac{2n\pi}{T} x} \\ \cos{\frac{2n\pi}{T} x})$ (Notese que no es un conjunto con norma $1$, sin embargo dicha norma depende del periodo $T$ y es $T/2$), donde $T$ es el periodo de la función. 
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Serie de Fourier}} \\
+	Sea $f(x)$ una función de variable real con periodo $T$ o integrable en el intervalo $[t_o - T/2,t_o + T/2]$, entonces la serie de Fourier asociada a $f(x)$ es
+	\begin{equation}
+		f(x) \sim \frac{a_o}{2} + \sum _{n = 1} ^\infty \qty[a_n \cos{\frac{2n\pi}{T} x} + b_n \sin{\frac{2n\pi}{T} x}]. \label{fourier}
+	\end{equation}
+	Donde
+		$$ a_n = \frac{2}{T} \inner{\cos{\frac{2n\pi}{T} x}}{f}, $$
+		$$ b_n = \frac{2}{T} \inner{\sin{\frac{2n\pi}{T} x}}{f}, $$
+	y
+		$$ a_o = \frac{2}{T} \int _{-T/2} ^{T/2} f(x) \dd{x}. $$
+	
+\end{mdframed}
+
+
+Dado esto, es normal y lógico pensar si esta representación en realidad converge y, en caso de hacerlo, si converge a $f(x)$. Las condiciones que aseguran la convergencia de dicha serie fueron estudiadas por el matemático Dirichlet.
+
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Teorema de Dirichlet: Convergencia a una Función Periódica}}
+	\begin{enumerate}
+		\item $f(x)$ es definida.
+		\item $f(x)$ función periódica con periodo $T$.
+		\item $f(x)$ y $f'(x)$ son continuas por intervalo en $(-T/2,T/2)$.
+	\end{enumerate}
+	Entonces $\eqref{fourier}$ converge a:
+	\begin{enumerate}
+		\item $f(x)$ si $x$ es un punto de continuidad.
+		\item $\frac{1}{2} \qty(f(x+) + f(x-))$ si $x$ es un punto de discontinuidad (Con $f(x+) \displaystyle\lim _{t \to x+} f(t)$ y $f(x-) \displaystyle\lim _{t \to x-} f(t)$).
+	\end{enumerate}
+	
+\end{mdframed}
+
+
+
+
+
+
+\begin{mdframed}[style=warning]
+	{\large \textbf{Identidad de Parseval}} \\
+	Para una función en el intervalo $[-\pi ,\pi]$ se tiene la siguiente identidad
+		$$ \frac{1}{\pi} \int f(x) ^2 \dd{x} = \frac{a_o ^2}{2} + \sum _{n = 1} ^\infty \qty(a_n ^2 + b_n ^2). $$	
+\end{mdframed}
+
+
 
 \pagebreak
 
@@ -80,10 +132,42 @@ PAGINA 6,7,8 gmet5
 
 
 
+\begin{ejercicio}
+	Demuestre que la Función Delta de Dirac $\delta (x - a)$, expandida en una serie de Fourier en el medio intervalo $(0,L)$ (con $0 < a < L$) está dada por
+		$$ \delta (x - a) = \frac{2}{L} \sum _{n = 1} ^\infty \sin{\qty(\frac{n\pi a}{L})} \sin{\qty(\frac{n\pi x}{L})}. $$
+\end{ejercicio}
 
 
 
 
+
+\begin{ejercicio}
+	Encuentre la serie de Fourier para la función dada.
+	\begin{enumerate}
+		\item $ f(x) = \left\{ \mqty{ 0, \qquad -\pi < x < 0 \\ 1, \qquad 0\leq x < \pi } \right. $
+		\item $ f(x) = \left\{ \mqty{ 0, \qquad -\pi < x < 0 \\ x^2, \qquad 0\leq x < \pi } \right. $
+		\item $ f(x) = \left\{ \mqty{ 0, \qquad -\pi < x < 0 \\ \sin{x}, \qquad 0\leq x < \pi } \right. $
+	\end{enumerate}
+\end{ejercicio}
+
+
+
+\begin{ejercicio}
+	Utilice el inciso correspondiente del ejercicio anterior para encontrar el valor de
+	\begin{enumerate}
+		\item $1 - \dfrac{1}{3} + \dfrac{1}{5} - \dfrac{1}{7} + \dfrac{1}{9} - \cdots$
+		\item $1 + \dfrac{1}{2^2} + \dfrac{1}{3^2} + \dfrac{1}{4^2} + \cdots$ y $1 - \dfrac{1}{2^2} + \dfrac{1}{3^2} - \dfrac{1}{4^2} + \cdots$
+		\item $\dfrac{1}{2} + \dfrac{1}{1\cdot 3} - \dfrac{1}{3\cdot 5} + \dfrac{1}{5\cdot 7} - \dfrac{1}{7\cdot 9} + \cdots$
+	\end{enumerate}
+\end{ejercicio}
+
+
+
+
+\begin{ejercicio}
+	Demuestre que la serie de Fourier para una onda de sierra ($f(x) = x$ en $-\pi < x < \pi$) es
+		$$ f(x) = 2\sum _{n = 1} ^\infty \frac{(-1)^{n + 1}}{n} \sin{nx}. $$
+\end{ejercicio}
 
 
 
