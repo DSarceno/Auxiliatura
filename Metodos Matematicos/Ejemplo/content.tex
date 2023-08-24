@@ -1,0 +1,39 @@
+\vspace{1cm}
+\begin{tcolorbox}[arc=0mm,boxrule=0pt,colframe=white,colback=lightgray!25]
+	Investigue que es un espacio unitario y demuestre que una sucesión ortonormal $\seque{x}{n}$ en un espacio unitario $E$ es completa sí y solo sí 
+		$$ \norm{x}^2 = \sum _{n = 1} ^\infty \abs{\inner{x}{x_n}} ^2. $$
+\end{tcolorbox}
+
+\noindent {\large \textbf{Solución: }} \\
+	Se tiene $\seque{x}{n}$ una sucesión ortonormal. Tomando $x\in E$. \\
+	
+	$(\Rightarrow)$ Sea $\seque{x}{n}$ compelta. Entonces, podemos escribir
+		$$ x = \sum _{n = 1} ^\infty \inner{x}{x_n} x_n . $$
+	\begin{center}
+		Encontrando la norma
+	\end{center}
+		\begin{align*}
+			\norm{x} ^2 &= \norm{\sum _{n = 1} ^\infty \inner{x}{x_n} x_n} ^2, \\
+			&= \sum _{n = 1} ^\infty \norm{\inner{x}{x_n} x_n} ^2, \\
+			&= \sum _{n = 1} ^\infty \abs{\inner{x}{x_n}}^2 \underbrace{\norm{x_n}^2}_{=1} , \\
+			&= \sum _{n = 1} ^\infty \abs{\inner{x}{x_n}}^2 .
+		\end{align*}
+		
+	$(\Leftarrow)$ Ahora, sea $\norm{x}^2 = \displaystyle\sum _{n = 1} ^\infty \abs{\inner{x}{x_n}}^2$. \\ Se define $s_n = \displaystyle\sum _{k = 1} ^n \inner{x}{x_k} x_k$ y sabiendo que $\norm{x - s_n}^2 + \norm{s_n}^2 = \norm{x}^2$ (Saxe, K., $2002$, p. $83$). Por lo tanto
+		\begin{align*}
+			\lim _{n \to \infty} \norm{x - s_n} ^2 &= \lim _{n\to \infty} \qty(\norm{x}^2 - \norm{s_n}^2), \\
+			&= \norm{x}^2 - \lim _{n\to \infty} \sum _{k = 1} ^n \abs{\inner{x}{x_k}}^2 , \\
+			&= 0.
+		\end{align*}
+	Lo que nos permite escribir $x = \sum _{n = 1} ^\infty \inner{x}{x_n} x_n$, lo que demuestra que, $\seque{x}{n}$, es completa.
+
+
+
+
+
+
+
+
+
+
+%%%%
