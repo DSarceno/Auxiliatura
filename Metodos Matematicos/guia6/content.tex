@@ -1,192 +1,80 @@
 %\vspace{1cm}
 \section*{Introducción}
-Luego de un tiempo estudiando secuencias, convergencia, completitud y espacios de Banach y Hilbert. Volvemos a los espacios euclídeos, en concreto, al estudio de aplicaciones/transformaciones/mapas lineales entre dichos espacios. 
+Ya teniendo las propiedades y definiciones que engloban a los operadores, nos enfocaremos en operadores diferenciales y sus relacionados. Esto abrirá las puertas a problemas y teorías interesantes.
 
 
-\section*{Series de Fourier Generalizadas}
+\section*{Operador Diferencial}
 
-El análisis de las series de Fourier esta directamente ligado con el trato de operadores lineales y sus valores, vectores y funciones propias. Temas que se tratarán con énfasis más adelante. Sin embargo, es necesario tratar la parte de sus condiciones de frontera.
 
 
 
 \begin{mdframed}[style=warning]
-	{\large \textbf{Condiciones de Frontera Comunes\footnote{Puede revisar el desarrollo de la solución al sistema $A(X) = \lambda X$ con $A = -\dv[2]{x}$ con las condiciones de frontera mostradas en el siguiente \href{https://www.youtube.com/watch?v=hhb7Wou8UzI}{video} a partir del minuto $23:28$.}:}} \\
-	Para una función $X$ definida en un intervalo $[a,b]$.
-	\begin{description}
-		\item[Dirichlet: ] $X(a) = X(b) = 0$.
-		\item[Neumann: ] $X'(a) = X'(b) = 0$.
-		\item[Periódicas : ] $X(a) = X(b)$ y $X'(a) = X'(b)$.
-	\end{description}
+	{\Large \textbf{Operador Diferencial:}} \\
+	Sea $D$ un operador y $f$ una función en $L_2$, se dice $D$ es un operador diferencial si:
+	$$ D:L_2 \to L_2, $$
+	$$ f(x) \mapsto \dv{x} f(x). $$
 \end{mdframed}
 
-Con esto, se pueden definir las series de Fourier Generalizadas.
-
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Series de Fourier Generalizadas}} \\
-	Dado un sistema de condiciones de frontera, suponga que hay una suesión $X_n (x)$ de eigenfunciones (funciones propias) y una sucesión $\lambda _n$ de eigenvalores (valores propios) a su respectivo $X_n$, entonces definimos la serie de Fourier Generalizada de $\varphi$ como:
-		$$ \sum _{n = 1} ^\infty A_n X_n(x), $$
-	donde $A_n = \dfrac{\inner{\varphi}{X_n}}{\norm{X_n}^2}$. Con esto y las condiciones de frontera mostradas anteriormente, se generan $3$ tipos de series de Fourier, la serie en senos, en cosenos y la completa.
-\end{mdframed}
-
-
-
-
-
-
-\section*{Transformaciones Lineales}
-Ya que se estudiaron propiedades en espacios euclídeos, es momento de estudiar lo que modifica los vectores en dicho espacio y hacia otros. Para esto se mostrarán una serie de definiciones y teoremas importantes. Primero la más importante y básica de todas:
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Mapas lineales o Trasformaciones lineales}} \\
-	Un mapa lineal de $V$ a $W$ es una función $T:V\to W$ con las siguientes propiedades: (para todo $u,v\, \in \, V$ y $\alpha \, \in \, \F$)
-	\begin{description}
-		\item[Aditividad: ] $T(u + v) = Tu + Tv$.
-		\item[Homogeneidad: ] $T(\alpha v) = \alpha Tv$.
-	\end{description}
-	De forma general, un mapa lineal es una función que satisface lo siguiente: $T(\alpha u + \beta v) = \alpha Tu + \beta Tv$.
-\end{mdframed}
+En concreto nosotros trabajaremos con operadores diferenciales de segundo orden (ecuaciones diferenciales de segundo orden) los cuales son problemas de frontera. Entonces, sea $L$ un operador lineal de orden $p$
+	$$ L = a_p (x) \dv[p]{x} + a_{p - 1} (x) \dv[p - 1]{x} + \cdots + a_1 (x) \dv{x} + a_o (x). $$
+Para una $L$ de segundo orden y $a_2 (x) \neq 0$. Ahora, definimos $B_1 (y) = b_1$ y $B_2 (y) = b_2$ como
+	$$ 
+		\left\{\begin{array}{c}
+			B_1 (y) = \alpha _{11} y(a) + \alpha _{12} y'(a) + \beta _{11} y(b) + \beta _{12} y'(b) = b_1 \\
+			B_2 (y) = \alpha _{21} y(a) + \alpha _{22} y'(a) + \beta _{21} y(b) + \beta _{22} y'(b) = b_2.
+		\end{array}\right.			
+	$$
+De lo cual surgen las siguientes condiciones
+\begin{itemize}
+	\item \textbf{Condiciones de Robbin}
+		$$ \alpha _{11} y(a) + \alpha _{12} y'(a) = b_1, $$
+		$$ \beta _{21} y(b) + \beta _{22} y'(b) = b_2 . $$
+	\item \textbf{Condiciones Periódicas}
+		$$ y(a) = y(b) \qquad \text{Dirichlet,} $$
+		$$ y'(a) = y'(b) \qquad \text{Neumann.} $$
+\end{itemize}
 
 
 
 
 
 \begin{mdframed}[style=warning]
-	{\large \textbf{Formas y Operadores Lineales}} \\
-	Una función escalar definida sobre un espacio euclídeo $\E$, $f:\E \to \F$, es llamada forma o funcional lineal si satisface las condiciones de linealidad. Mientras que un operador lineal es una función $A:\E \to \E$, que también satisface las condiciones de linealidad.
+	{\Large \textbf{Dominio de un Operador:}} \\
+	Dado $L$ un operador diferencial en $L_2 (a,b)$, se define su dominio, $D(L)$, como el conjunto de todas las fuciones para las cuales la derivada de mayor orden de $L$ es de cuadrado integrable y satisface las condiciones $B_1 (y) = B_2 (y) = 0$.
 \end{mdframed}
 
 
-Algunos ejemplos de operadores lineales son:
 
 
-\begin{description}
-	\item[Operador Nulo: ] $\vb{O} x = \vb{0}$, $\forall \, x \, \in \, \E$.
-	\item[Operador Identidad: ] $\vb{I} x = x$, $\forall \, x \, \in \, \E$.
-	\item[Operador de Proyección: ] $Px = \sum _{i = 1} ^n e_i \inner{e_i}{x}$ para un sistema ortonormal completo $\{ e_1, \ldots ,e_n \}$ en $\E _n \subset \E$.
-	\item[Operadores Idempotentes: ] un operador que cumpla con $P(Px) = Px$, $\forall \, x \, \in \, \E$, se llama idempotente.
-	\item[Operador de Fredholm: ] Ver \href{https://github.com/DSarceno/Auxiliatura/blob/main/Metodos\%20Matematicos/guia4/guia4.pdf}{guía 4}.
-\end{description}
+	
 
-
-Estudiando un poco los mapas lineales, es fácil darse cuenta que el conjunto de mapas lineales es un espacio vectorial, denotado como $\lagran (V,W)$. Esto también aplica para formas y operadores lineales.
-
-
-\section*{Representación de Trasnformaciones Lineales}
-
-La forma más utilizada para representar mapas lineales en espacios de dimensión finita es la forma matricial. Esta se define como
+\section*{Operador Sturm-Liouville}
+Tomando el operador $L$ de la sección anterior, se calcula su operador adjunto, el cual es
+\begin{equation}	
+	L^\dagger = a_2 \dv[2]{x} + (2a_2 ' - a_1 ') \dv{x} + (a_2 '' - a_1 ' + a_o). \label{Ladjoint}
+\end{equation}
+Y $L$ es hermítico (autoadjunto) si $L = L^\dagger$ y $D(L) = D(L^\dagger)$. En caso de que solo se satisfaga que $L = L^\dagger$, entonces el operador es formalmente autoadjunto. Estas demostraciones se dejan como ejercicio al lector.
 
 
 \begin{mdframed}[style=warning]
-	{\large \textbf{Matriz}} \\
-	Sean $m$ y $n$ enteros positivos. Una \textit{matriz de $m\times n$} $A$ es un arreglo rectangular de elementos de $\F$ con $m$ filas y $n$ columnas:
-		$$ A = \mqty(A_{11} & \cdots & A_{1n} \\ \vdots &  & \vdots \\ A_{m1} & \cdots & A_{mn}). $$
-\end{mdframed}
-
-Muy bonita definición, pero no nos dice nada acerca de como construír una matriz ya conociendo el operador asociado. Para se tiene el siguiente procedimiento:
-
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Matriz de un Mapa Lineal}} \\
-	Sea $T \in \lagran(V,W)$ y $\{ e_1 ^V ,\ldots ,e_n ^V \}$ un sistema ortonormal completo de $V$ y $e_1 ^W ,\ldots ,e_n ^W$ un sistema ortonormal completo de $W$. La matriz de $T$ respecto a estas bases es la matriz $m\times n$ $\M (T)$ cuyas entradas $A_{jk}$ son definidos como
-		$$ T e_k ^V = A_{1k} e_1 ^W + \cdots + A_{mk} e_m ^W = \sum _{j = 1} ^m A_{jk} e_j ^W . $$
-
-	\noindent \textit{En otras palabras, la $k-$ésima columna de $\M (T)$ consiste en los escalares necesarios para escribir a $Te_k ^V$ como una combinación lineal de $(e_1 ^W ,\ldots ,e_m ^W)$.}
-
+	{\Large \textbf{Operador de Sturm-Liouville:}} \\
+	Un operador de Sturm-Liouville definido sobre un espacio de funciones con una segunda derivada continua, donde $-\infty < a < b < \infty$, está definido de la siguiente forma
+		$$ L := \dv{t} \qty[p(t) \dv{t}] + q(t), $$
+	si $p(a) \neq 0 \neq p(b)$, este operador resulta simétrico.
 \end{mdframed}
 
 
 
-\section*{Características de los Operadores}
-Para diferentes operadores se cumplen ciertas condiciones o características importantes.
-
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Norma de un Operador}} \\
-	Dado un operador lineal sobre un espacio euclídeo, $A: \E \to \E$, se define su norma, $\norm{A}$, como el supremo de la funcional $\norm{Ax}$ tomada sobre el conjunto de vectores unitarios de ese espacio,
-		$$ \norm{Ax} := \sup _{x\in \E \, | \, \norm{x} = 1} {\norm{Ax}}. $$
-	Si $\norm{A} < \infty$, el operador se dice \textbf{acotado}. Y todo vector unitario $x_o$ para el cual esa cota es alcanzada se dice \textbf{vector máximo} de $A$.
-\end{mdframed}
-
-Y, como es de esperarse, el operador identidad tiene norma $1$ y el operador nulo, tiene norma cero.
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Proposiciones y Lemas Importantes}} \\
-	\begin{itemize}
-		\item En un espacio euclídeo de dimensión finita, todo operador lienal resulta acotado y tiene un vector máximo.
-		\item Si $A$ es un operador lineal acotado sobre un espacio euclídeo $\E$, entonces
-			$$ \norm{Ax} \leq \norm{A} \norm{x}. $$
-		\item De forma equivalente, la norma de un operador acotado $A$ también puede definirse como
-			$$ \norm{A} = \sup _{x,y \, \text{unitarios}} {\inner{y}{Ax}}. $$
-		\item Sean $A$ y $B$ operadores lineales acotados sobre un espacio euclídeo $\E$, su suma también es un operador acotado $\norm{A + B} \leq \norm{A} + \norm{B}$. Asimismo, la norma de los operadores cumple las propiedades de norma. En concreto, los operadores acotados sobre un espacio euclídeo forman un espacio de Banach.
-		\item También se cumple $\norm{AB} \leq \norm{A} \norm{B}$.
-	\end{itemize}
-\end{mdframed}
-
-
-Visto lo anterior, es claro que dos operadores acotados que tienen los mismo elementos de matriz son iguales. Si
-	$$ \inner{x}{Ay} = \inner{x}{By}, \qquad \forall \, x,y\in \E , $$
-entonces, $A-B = \vb{O}$ por ende $A = B$. Ahora bien,
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Operador Adjunto}} \\
-	Dado un operador lineal acotado, se define su operador adjunto como aquel operador que satisface
-		$$ \inner{y}{A^\dagger x} = \inner{Ay}{x} = \inner{x}{Ay} ^*,\qquad \forall \, x,y \in \E . $$
-	Teniendo una base ortonormal $\{ e_1,\ldots ,e_n \}$, la matriz asociada al operador adjunto, $A'$, tiene por elementos a
-		$$ (A')_{ij} = \inner{e_i}{A^\dagger e_j} = \inner{Ae_i}{e_j} = \inner{e_j}{Ae_i} ^* = (A)_{ij} ^* = (A^\dagger)_{ij}. $$
-	A la matriz asociada al operador adjunto es llamada \textbf{matriz adjunta} (transpuesta conjugada), y es de la forma $A' = A^\dagger = (A^t)^*$.
-\end{mdframed}
 
 
 
-\begin{mdframed}[style=warning]
-	{\large \textbf{Operador Simétrico y Autoadjunto}} \\
-	A un operador acotado $A$ definido sobre un espacio euclídeo $\E$ se dice simétrico si
-		$$ \inner{Ax}{y} = \inner{x}{Ay}, \qquad \forall \, x,y \, \in \, \E . $$
-	Dadas esas condiciones, un operador simétrico coincide con su adjunto, a esto se le denomina \textbf{autoadjunto} o \textbf{hermítico}, $A = A^\dagger$.
-\end{mdframed}
 
 
 
-\section*{Teorema Espectral}
-Para iniciar con esta sección es necesario introducir algunas definiciones y teoremas.
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Espectro}} \\
-	El espectro de un operador $A$, $\sigma (A)$, es el conjunto de todos los números complejos $\lambda$ tales que $A - \lambda I$ no es inverible.
-\end{mdframed}
+\section*{Problema de Sturm-Liouville}
+ 
 
 
-En concreto, el espectro de un operador se relaciona directamente con la ecuación de la ecuación
-	$$ Au = \lambda u, $$
-donde $U\neq 0$ y $\lambda \in \F$ (normalmente se consideran los complejos puesto que son algebraicamente cerrados, para ser un poco más generales, tomaremos un cuerpo $\F$.). Las soluciones de dicha ecuación pueden relacionarse con las propiedades del \textbf{operador resolvente} dado como
-	$$ R_\lambda = \qty(A - \lambda I)^{-1}. $$
-Los valores complejos para los cuales el operador $R_\lambda$ está bien definido y es acotado se dice que pertenecen al conjunto resolvente. Los valores $\lambda$ para los cuales no esta bien definido, i.e. "presenta problemas", consituyen el espetro del operador y estan denominados como valores propios\footnote{Revisar el inciso (3) de la bibliografía para mayor información.}. \\
-
-Tomando a Axler como primera fuente, se define un teorema espectral para dos posibles campos $\R$ y $\C$. Por lo que, se tiene
-
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Teorema Espectral Complejo}} \\
-	Tomando $\F = \C$ y $T$ un operador. Entonces, lo siguiente es equivalente:
-	\begin{enumerate}[a)]
-		\item $T$ es normal\footnote{Un operador normal es aquel que conmuta con su adjuto ($TT^\dagger = T^\dagger T$) y $\norm{Tv} = \norm{T^\dagger v}$.}.
-		\item $E$ tiene una base ortonormal de vectores propios de $T$.
-		\item $T$ tiene una matriz diagonal respecto a alguna base ortonormal de $V$.
-	\end{enumerate}
-\end{mdframed}
-
-
-
-\begin{mdframed}[style=warning]
-	{\large \textbf{Teorema Espectral Real}} \\
-	Tomando $\F = \R$ y $T$ un operador. Entonces, lo siguiente es equivalente:
-	\begin{enumerate}[a)]
-		\item $T$ es autoadjunto.
-		\item $E$ tiene una base ortonormal de vectores propios de $T$.
-		\item $T$ tiene una matriz diagonal respecto a alguna base ortonormal de $V$.
-	\end{enumerate}
-\end{mdframed}
 
 
 \pagebreak
@@ -197,45 +85,13 @@ Tomando a Axler como primera fuente, se define un teorema espectral para dos pos
 
 
 \begin{ejercicio}
-	Suponga qe $T$ es un operador. Pruebe que $\lambda$ es un valor propio de $T$ si y solo si $\bar{\lambda}$ es un valor propio de $T^\dagger$.
+	Tomando un operador diferencial $L$ de segundo orden y $u \in D(L)$ y $v\in D(L^\dagger)$. Demuestre la forma adjunta del operador $L$ mostrada en \eqref{Ladjoint}. Al término extra resultante de la integración se le conoce como \textit{concominante bilineal de $u$ y $v$} y es de la forma
+		$$ J(u,v) = a_2 (vu' - uv') + (a_1 - a_2')v. $$
+	También, encuentre la forma que debe tener el operador $L$ para ser autoadjunto (hermítico) y encuentre la forma de su concominante.
 \end{ejercicio}
 
 
 
-
-\begin{ejercicio}
-	Demuestre que los valores propios de un operador lineal simétrico $A$ son reales.
-\end{ejercicio}
-
-
-
-
-\begin{ejercicio}
-	Demuestre que los vectores propios de un operador lineal simétrico $A$ correspondientes a valores propios diferentes son ortogonales entre sí.
-\end{ejercicio}
-
-
-
-\begin{ejercicio}
-	Probar que para cualquier matriz cuadrada $A$, la matriz $A + A^t$ es simétrica.
-\end{ejercicio}
-
-
-
-\begin{ejercicio}
-	Dad la siguiente matriz:
-		$$ R(\theta) = \mqty(\cos{\theta} & -\sin{\theta} \\ \sin{\theta} & \cos{\theta}). $$
-	Encontrar $A^2$, $A^3$ y una fórmula para $A^n$ y demuestrela.
-\end{ejercicio}
-
-
-
-
-\begin{ejercicio}
-	Demuestre que los números de Fibonacci $F_n$ cumplen la siguiente ecuación matricial:
-		$$ \mqty(1 & 1 \\ 1 & 0)^n = \mqty(F_{n + 1} & F_n \\ F_n & F_{n - 1}), \qquad n\in \Z . $$
-	¿Cuáles son los valores propios de la matriz que aparece en el miembro izquierdo (sin el exponente), y qué relación tiene con la sucesión de Fibonacci? ¿Cómo se puede demostrar la identidad de Cassini\footnote{Investigue.} empleando la ecuación matricial anterior?
-\end{ejercicio}
 
 
 
