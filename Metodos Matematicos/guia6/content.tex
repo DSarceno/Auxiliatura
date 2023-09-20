@@ -17,7 +17,7 @@ Ya teniendo las propiedades y definiciones que engloban a los operadores, nos en
 
 En concreto nosotros trabajaremos con operadores diferenciales de segundo orden (ecuaciones diferenciales de segundo orden) los cuales son problemas de frontera. Entonces, sea $L$ un operador lineal de orden $p$
 	$$ L = a_p (x) \dv[p]{x} + a_{p - 1} (x) \dv[p - 1]{x} + \cdots + a_1 (x) \dv{x} + a_o (x). $$
-Para una $L$ de segundo orden y $a_2 (x) \neq 0$. Ahora, definimos $B_1 (y) = b_1$ y $B_2 (y) = b_2$ como
+Para un $L$ de segundo orden y $a_2 (x) \neq 0$. Ahora, definimos $B_1 (y) = b_1$ y $B_2 (y) = b_2$ como
 	$$ 
 		\left\{\begin{array}{c}
 			B_1 (y) = \alpha _{11} y(a) + \alpha _{12} y'(a) + \beta _{11} y(b) + \beta _{12} y'(b) = b_1 \\
@@ -59,20 +59,48 @@ Y $L$ es hermítico (autoadjunto) si $L = L^\dagger$ y $D(L) = D(L^\dagger)$. En
 \begin{mdframed}[style=warning]
 	{\Large \textbf{Operador de Sturm-Liouville:}} \\
 	Un operador de Sturm-Liouville definido sobre un espacio de funciones con una segunda derivada continua, donde $-\infty < a < b < \infty$, está definido de la siguiente forma
-		$$ L := \dv{t} \qty[p(t) \dv{t}] + q(t), $$
-	si $p(a) \neq 0 \neq p(b)$, este operador resulta simétrico.
+	\begin{equation}
+		L := \dv{t} \qty[p(t) \dv{t}] + q(t), \label{opsturm}
+	\end{equation}
+	si $p(a) \neq 0 \neq p(b)$, este operador resulta simétrico, además de satisfacer las condiciones de frontera homogéneas
+		$$ \alpha y(a) + \beta y'(a) = 0, \qquad \gamma y(b) + \delta y'(b) = 0, $$
+	con $\alpha ^2 + \beta ^2 \neq 0 \neq \gamma ^2 + \delta ^2$.
 \end{mdframed}
 
 
 
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Operador No Singular:}} \\
+	Tomando las características mostradas en la definición anterior se dice que un operador es \textbf{no singular} si la ecuación
+		$$ Ly(t) = \vb{0} (t) $$
+	no tiene en $D(L)$ soluciones no triviales.
+\end{mdframed}
 
 
 
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Teorema 6.1.:}} \\
+	Todo operador de Sturm-Liouville no singular tiene u conjunto ortonormal completo de autofunciones $e_k (t) \in D(L)$. Además, toda función dos veces diferenciable que satisfaga las condiciones de contorno que especifican el dominio del operador, $y(t) \in D(L)$, tiene un desarrollo de Fourier respecto de los autovectores $e_k (t)$ que converge abosluta y uniformemente.
+		$$ y(t) = \sum _{k = 1} ^{\infty} c_n e_k (t), \qquad \quad c_n := \frac{\inner{e_k (t)}{y(t)}}{\inner{e_k (t)}{e_k (t)}}. $$
+\end{mdframed}
 
 
 
 \section*{Problema de Sturm-Liouville}
  
+El estudio del problema de Sturm-Liouville parte del operador definido anteriormente, entonces
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Problema de Sturm-Liouville Regular}} \\
+	Dado el operador \eqref{opsturm}, se define la ecuación de Sturm-Liouville cómo
+		$$ -\dv{x} \qty[p(x)\dv{y}{x}] + q(x) y = \lambda w(x) y, $$
+	donde las funciones $p(x)$ y $w(x)$ son positivas y $q(x)$ es real. La función $w(x)$ se conoce como una función de densidad o función de peso. El valor de $\lambda$ no se especifica; en concreto, el encontrar los valores $\lambda$ para los que exista una solución no trivial de la ecuación que satisfaga las condiciones de frotnera se denomina \textbf{problema de Sturm-Liouville}.
+\end{mdframed}
+
+Es claro que los valores de $\lambda$ representan los valores propios del problema S-L y las soluciones son las funciones propias. \\
+
+
+Entre los problemas de Sturm-Liouville están la ecuación de Bessel, Legendre, Hermite, Laguerre, entre otras. Varias de estas las estudiaremos en este curso. 
 
 
 
@@ -91,6 +119,11 @@ Y $L$ es hermítico (autoadjunto) si $L = L^\dagger$ y $D(L) = D(L^\dagger)$. En
 \end{ejercicio}
 
 
+\begin{ejercicio}
+	Considere una cuerda fija en los puntos $x = 0$ y $x = L$. Resuelva el siguiente S-L
+		$$ \dv[2]{\psi (x)}{x} + k^2 \psi (x) = 0. $$
+	Además, determine las funciones $p(x),q(x)$ y $w(x)$ así como el valor $\lambda$ en esta ecuación.
+\end{ejercicio}
 
 
 
