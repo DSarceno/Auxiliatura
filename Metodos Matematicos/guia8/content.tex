@@ -1,24 +1,138 @@
 %\vspace{1cm}
-\section*{Introducción}
-La guía pasada estudiamos los oepradores de Sturm-Liouville y algunos problemas importantes relacionados con ellos. En esta guía, se estudiará uno de los problemas más importantes relacionados con operadores de Sturm-Liouville, la ecuación de Legendre.
-
-
-\section*{Polinomios de Legendre}
+\section*{Ecuación de Laplace}
+Primero recordaremos lo que representan los diferentes operadores diferenciales:
 
 
 \begin{mdframed}[style=warning]
-	{\Large \textbf{Función Generatriz de los Polinomios de Legendre:}} \\
-		$$ \psi (x,\xi) = \frac{1}{\sqrt{1 - 2x\xi + \xi ^2}}, $$
-	se le llama función generatriz dado que los polinomios de Legendre se definen como los coeficientes del desarrollo en series de potencias de $\xi$:
-		\begin{equation}
-			\psi (x,\xi) = \frac{1}{\sqrt{1 - 2x\xi + \xi ^2}} = \sum _{n = 0} ^\infty P_n (x) \xi ^n . \label{generatriz}
-		\end{equation}
+	{\Large \textbf{Operadores Diferenciales:}} \\
+	\begin{description}
+		\item[Gradiente $\grad$: ] Es el vector que mide la dirección de "crecimiento" del campo escalar.
+			\begin{table}[H]
+				\centering
+				\caption{Forma del gradiente en diferentes sistemas de coordenadas.}
+				\label{grad}
+				\begin{tabular}{||c|c||}
+					\hline
+					\hline
+						Coordenadas Cartesianas & $ \grad{\phi} = \displaystyle\pdv{\phi}{x} \vx +\displaystyle\pdv{\phi}{y} \vy + \displaystyle\pdv{\phi}{z} \vz $ \\
+					\hline
+						Coordenadas Cilíndricas & $ \grad{\phi} = \displaystyle\pdv{\phi}{\rho} \vu{\rho} + \dfrac{1}{\rho} \displaystyle\pdv{\phi}{\varphi} \vu{\varphi} + \displaystyle\pdv{\phi}{z} \vz $ \\
+					\hline
+						Coordenadas Esféricas & $ \grad{\phi} = \displaystyle\pdv{\phi}{r} \vr + \dfrac{1}{r} \displaystyle\pdv{\phi}{\theta} \vu{\theta} + \dfrac{1}{r\sin{\theta}} \displaystyle\pdv{\phi}{\varphi} \vu{\varphi} $ \\
+					\hline
+					\hline
+				\end{tabular}
+			\end{table}
+		\item[Divergencia $\div$: ] Mide la diferencia entre el flujo entrante y saliente de un campo vectorial sobre una superficie.
+			\begin{table}[H]
+				\centering
+				\caption{Forma de la divergencia en diferentes sistemas de coordenadas.}
+				\label{div}
+				\begin{tabular}{||c|c||}
+					\hline
+					\hline
+						Coordenadas Cartesianas & $ \div{\phi} = \displaystyle\pdv{\phi _x}{x} +\displaystyle\pdv{\phi _y}{y} + \displaystyle\pdv{\phi _z}{z} $ \\
+					\hline
+						Coordenadas Cilíndricas & $ \div{\phi} = \dfrac{1}{\rho}\displaystyle\pdv{(\rho \phi _\rho)}{\rho} + \dfrac{1}{\rho} \displaystyle\pdv{\phi _\varphi}{\varphi} + \displaystyle\pdv{\phi _z}{z} $ \\
+					\hline
+						Coordenadas Esféricas & $ \div{\phi} = \dfrac{1}{r^2} \displaystyle\pdv{(r^2 \phi _r)}{r} + \dfrac{1}{r\sin{\theta}} \displaystyle\pdv{\qty(\sin{\theta} \phi _\theta)}{\theta} + \dfrac{1}{r\sin{\theta}} \displaystyle\pdv{\phi _\varphi}{\varphi} $ \\
+					\hline
+					\hline
+				\end{tabular}
+			\end{table}
+		\item[Rotacional $\curl$: ] Muestra la tendencia de un campo a inducir rotación alrededor de un punto.
+			$$ \curl{\Ff} = \frac{1}{h_1 h_2 h_3} \left|\begin{array}{ccc}	 
+				h_1 \vu{q}_1 & h_2 \vu{q}_2 & h_3 \vu{q}_3 \\
+				\pdv{q_1} & \pdv{q_2} & \pdv{q_3} \\
+				h_1 F_1 & h_2 F_2 & h_3 F_3 
+			\end{array}\right|, $$
+			donde $h_i (q_1 ,q_2 ,q_3) = \norm{\vec{e}_i} = \norm{\pdv{\vec{r}}{q_i}}$ es llamado, \textbf{factor de escala} (para coordenadas ortogonales).
+		\item[Laplaciano $\laplacian$: ] Existen dos tipos de laplacianos, nosotros nos concentraremos en el laplaciano aplicado a un campo escalar. Esta es una medida del grado en que difiera el campo en un determinado punto en el espacio del valor promedio del campo alrededor de ese punto (vecindad). Maxwell propuso llamar al laplaciano del campo, \textbf{la concentración}.
+		\begin{table}[H]
+				\centering
+				\caption{Forma del Laplaciano (escalar) en diferentes sistemas de coordenadas.}
+				\label{lap}
+				\begin{tabular}{||c|c||}
+					\hline
+					\hline
+						Coordenadas Cartesianas & $ \laplacian{\phi} = \displaystyle\pdv[2]{\phi}{x} +\displaystyle\pdv[2]{\phi}{y} + \displaystyle\pdv[2]{\phi}{z} $ \\
+					\hline
+						Coordenadas Cilíndricas & $ \laplacian{\phi} = \dfrac{1}{\rho} \displaystyle\pdv{\rho} \qty(\rho \displaystyle\pdv{\phi}{\rho}) + \dfrac{1}{\rho ^2} \displaystyle\pdv[2]{\phi}{\varphi} + \displaystyle\pdv[2]{\phi}{z} $ \\
+					\hline
+						Coordenadas Esféricas & $ \laplacian{\phi} = \dfrac{1}{r^2} \displaystyle\pdv[2]{r} \qty(r^2 \displaystyle\pdv{\phi}{r}) + \dfrac{1}{r^2 \sin{\theta}} \displaystyle\pdv{\theta} \qty(\sin{\theta} \displaystyle\pdv{\phi}{\theta}) + \frac{1}{r^2 \sin ^2 {\theta}} \displaystyle\pdv[2]{\phi}{\varphi} $ \\
+					\hline
+					\hline
+				\end{tabular}
+			\end{table}
+	\end{description}
 \end{mdframed}
 
 
 
 
+Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
 
+
+
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Ecuación de Laplace:}} \\
+	Es una ecuación en derivadas parciales de segundo orden de tipo elíptica, es una simplificación de la ecuación de Poisson, así como de la ecuación de Helmholtz.
+		$$ \laplacian{u} = 0. $$
+\end{mdframed}
+
+
+Resolviendo esta ecuación en coordenadas esféricas (que es la solución que nos servirá en la parte de aplicaciones en electrostática), por medio de separación de variables, llegamos a
+	$$ \psi (r,\theta ,\varphi) = \sum _{l,m} \qty(A_{lm} r^l + B_{lm} r^{-(l + 1)}) P_l ^m (\cos{\theta}) \qty(A_{lm} ^\prime \sin{m\varphi} + B_{lm} ^\prime \cos{m\varphi}). $$
+	
+Una aplicación ya estudiada por nosotros es la vista en el curso de electromagnetismo. En la cual se estudia una esfera conductora sumergida en un campo eléctrico constante (o variable) estas aplicaciones se dejarán como problemas.
+
+
+
+
+
+
+
+\section*{Polinomios de Hermite}
+Al igual que los polinomios de Legendre, los polinomios de Hermite son soluciones (eigenfunciones) de un operador de Sturm-Liouville, además son generados por una función generatriz.
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Ecuación de Hermite:}} \\
+	Dada la ecuación de \textbf{Hermite}
+		$$ H_n '' (x) - 2xH_n '(x) + 2nH-n (x) = 0. $$
+	Y su "\textbf{Fórmula de Rodríguez}" nace de la función generatriz
+		$$ g(x,t) = e^{-t^2 + 2tx} = \sum _{n = 0} ^\infty H_n (x) \frac{t^n}{n!}, $$
+	utilizando series de potencias
+		$$ H_n (x) = (-1)^n e^{x^2} \dv[n]{x} e^{-x^2}. $$
+\end{mdframed}
+
+Estos polinomios aparcen en el oscilador armónico cuántico, movimiento Browniano, análisis de señales, etc.
+
+
+
+
+
+
+
+
+
+
+
+\section*{Funciones de Bessel (1er Tipo)}
+
+Las funciones de Bessel de 1er orden tienen aplicaciones en ramas como la óptica, electromagnetismo, física de partículas, cuántica, calor y oscilaciones, su capacidad para describir problemas con simetría cirular o cilíndrica las hacen útiles en estos contextos. Estas surgen de la ecuación conocida como la ecuación de Bessel.
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Ecuación de Bessel:}} \\
+		$$ x^2 J_\nu '' + xJ_\nu ' + (x^2 - \nu ^2) J_\nu = 0. $$
+	Función generatriz:
+		$$ g(x,t) = e^{(x/2)(t - 1/t)} = \sum _{-\infty} ^\infty J_n (x) t^n , $$
+	al igual que las funciónes vistas anteriormente; utilizando series de potencias, en concreto el método de Frobenious
+		$$ J_n (x) = \sum _{s = 0} ^\infty \frac{(-1)^s}{s! (n + s)!} \qty(\frac{x}{2})^{n + 2s}, $$
+		$$ J_{-n} (x) = \sum _{s = 0} ^\infty \frac{(-1)^s}{s! (s + n)!} \qty(\frac{x}{2})^{n +2s} = (-1)^n J_n (x). $$
+	Utilizando la función Gamma\footnote{}
+		$$ J_\nu (x) = \sum _{s = 0} ^\infty \frac{(-1)^s}{s! \Lambda (\nu + s + 1)} \qty(\frac{x}{2})^{\nu + 2s}. $$
+\end{mdframed}
 
 
 
@@ -32,13 +146,79 @@ La guía pasada estudiamos los oepradores de Sturm-Liouville y algunos problemas
 \section*{Problemas}
 
 
+\begin{ejercicio}
+	Encuentre el potencial en todas las regiones de un capacitor esférico (radio $R_o$), con la siguiente condición de frontera.
+		$$ \phi (R_o ,\theta) = \left\{ \mqty{V & 0\leq \theta \leq \pi /2 \\ -V & \pi/2 < \theta \leq \pi.} \right. $$
+\end{ejercicio}
+
+
+
+
+
+
+
+
 
 
 
 
 \begin{ejercicio}
-	Expanda $x^8$ como una serie de Legendre.
+	Demuestre que los polinomios de Hermite son ortogonales y encuentre su norma utilizando la función peso $w(x) = e^{-x^2 /2}$.
 \end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre las relaciones de recurrencia para las funciones de Hermite:
+	\begin{itemize}
+		\item $H_{n + 1} (x) = 2xH_n (x) - H_n ' (x)$.
+		\item $H_{n + 1} ' (x) = 2(n + 1) H_n (x) = 2H_n (x) + 2xH_n ' (x) - H_n '' (x)$.
+	\end{itemize}
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre las relaciones de recurrencia para las funciones de Bessel de 1er orden:
+	\begin{itemize}
+		\item $J_{n - 1} (x) + J_{n + 1} (x) = \frac{2n}{x} J_n (x)$.
+		\item $J_{n - 1} (x) - J_{n + 1} (x) = 2J_n ' (x)$.
+	\end{itemize}
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
