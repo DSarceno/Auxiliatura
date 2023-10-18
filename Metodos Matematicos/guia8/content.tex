@@ -99,7 +99,7 @@ Al igual que los polinomios de Legendre, los polinomios de Hermite son solucione
 \begin{mdframed}[style=warning]
 	{\Large \textbf{Ecuación de Hermite:}} \\
 	Dada la ecuación de \textbf{Hermite}
-		$$ H_n '' (x) - 2xH_n '(x) + 2nH-n (x) = 0. $$
+		$$ H_n '' (x) - 2xH_n '(x) + 2nH_n (x) = 0. $$
 	Y su "\textbf{Fórmula de Rodríguez}" nace de la función generatriz
 		$$ g(x,t) = e^{-t^2 + 2tx} = \sum _{n = 0} ^\infty H_n (x) \frac{t^n}{n!}, $$
 	utilizando series de potencias
@@ -120,20 +120,60 @@ Estos polinomios aparcen en el oscilador armónico cuántico, movimiento Brownia
 
 \section*{Funciones de Bessel (1er Tipo)}
 
-Las funciones de Bessel de 1er orden tienen aplicaciones en ramas como la óptica, electromagnetismo, física de partículas, cuántica, calor y oscilaciones, su capacidad para describir problemas con simetría cirular o cilíndrica las hacen útiles en estos contextos. Estas surgen de la ecuación conocida como la ecuación de Bessel.
+Las funciones de Bessel de 1er orden tienen aplicaciones en ramas como la óptica, electromagnetismo, física de partículas, cuántica, calor y oscilaciones, su capacidad para describir problemas con simetría cilíndrica las hacen útiles en estos contextos. Estas surgen de la ecuación conocida como la ecuación de Bessel\footnote{Se recomienda ver la resolución de dicha ecuación en el libro de Chow, p321-324.}.
 
 \begin{mdframed}[style=warning]
 	{\Large \textbf{Ecuación de Bessel:}} \\
 		$$ x^2 J_\nu '' + xJ_\nu ' + (x^2 - \nu ^2) J_\nu = 0. $$
+		$$ (xy')' - \frac{\nu ^2}{x} y + \lambda xy = 0. $$	
 	Función generatriz:
 		$$ g(x,t) = e^{(x/2)(t - 1/t)} = \sum _{-\infty} ^\infty J_n (x) t^n , $$
-	al igual que las funciónes vistas anteriormente; utilizando series de potencias, en concreto el método de Frobenious
+	al igual que las funciónes vistas anteriormente; utilizando series de potencias, en concreto el método de Frobenius
 		$$ J_n (x) = \sum _{s = 0} ^\infty \frac{(-1)^s}{s! (n + s)!} \qty(\frac{x}{2})^{n + 2s}, $$
 		$$ J_{-n} (x) = \sum _{s = 0} ^\infty \frac{(-1)^s}{s! (s + n)!} \qty(\frac{x}{2})^{n +2s} = (-1)^n J_n (x). $$
-	Utilizando la función Gamma\footnote{}
-		$$ J_\nu (x) = \sum _{s = 0} ^\infty \frac{(-1)^s}{s! \Lambda (\nu + s + 1)} \qty(\frac{x}{2})^{\nu + 2s}. $$
+	Utilizando la función Gamma\footnote{$\Gamma (z) = \int _0 ^\infty t^{z - 1} e^{-t} \dd{t}$.}
+		$$ J_\nu (x) = \sum _{s = 0} ^\infty \frac{(-1)^s}{s! \Gamma (\nu + s + 1)} \qty(\frac{x}{2})^{\nu + 2s}. $$
 \end{mdframed}
 
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Propiedades de las \href{http://www.sc.ehu.es/sbweb/fisica3/especial/bessel/bessel.html}{Funciones de Bessel:}}} \\
+	\begin{enumerate}[a)]
+		\item Las funciones de Bessel son pares si $\nu$ es par e impar si $\nu$ es impar.
+		\item Las funciones de Bessel están definidas y son continuas para todo $x\in \R$.
+		\item Las funciones de Bessel tienen infinitas raíces reales.
+		\item Se cumple
+		\begin{itemize}
+			\item $\dv{x} \qty[x^{-p} J_\nu (x)] = -x^{-p} J_{\nu + 1} (x)$ para $\nu = 0,1,2,\ldots$.
+			\item $\dv{x} \qty[x^{p} J_\nu (x)] = x^{p} J_{\nu - 1} (x)$ para $\nu = 0,1,2,\ldots$.
+		\end{itemize}
+		\item Igualdad asintótica
+			$$ J_\nu \approx \sqrt{\frac{2}{\pi x}} \cos{\qty(x - \frac{\nu \pi}{2} - \frac{\pi}{4})}, $$
+			y sean $\mu _1$ y $\mu _2$ dos raíces consecutivas cualesquiera de la función de Bessel, entonces $\abs{\mu _1 - \mu -2} \approx \pi$.
+		\item Las funciones $J_\nu (\mu _1 x), J_\nu (\mu _2 x), \ldots$ son un sistema completo y cualquier funcion $f\in L^2 (0,b)$ puede escribirse como una serie de Bessel-Fourier.
+			$$ f(x) = \sum _{k = 1} ^\infty c_k J_\nu (\mu _k x), $$
+		donde $ c_k = \frac{\inner{J_\nu (\mu _k x)}{f(x)}_x}{\norm{J_\nu (\mu _k x)}_x} $.
+	\end{enumerate}
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+\section*{Funciones de Bessel (2do Tipo)}
+
+Dadas las características de las funciones de Bessel de 1er tipo y la ecuación diferencial de la cuál salen, es necesario obtener una segunda solución independiente. A esta segunda solución se le conoce como \textbf{funciones de Bessel de 2do tipo}, funciones de Neumann o de Weber y estan denotadas por $Y_\nu (x)$ o $N_\nu (x)$.
+
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Funciones de Bessel de 2do Tipo:}} \\
+		$$ Y_\nu (x) = \frac{\cos{(\nu \pi)} J_\nu (x) - J_{-\nu} (x)}{\sin{(\nu \pi)}}, $$
+	para $\nu \, \notin \, \Z$.	
+\end{mdframed}
 
 
 
@@ -217,6 +257,11 @@ Las funciones de Bessel de 1er orden tienen aplicaciones en ramas como la óptic
 
 
 
+
+\begin{ejercicio}
+	Realize lo solicitado en el problema 2, pero para las funciones de Bessel. Utilice esta integral para iniciar:
+		$$ \int _0 ^1 x J_\nu (\lambda x) J_\nu (\mu x) \dd{x}. $$
+\end{ejercicio}
 
 
 
