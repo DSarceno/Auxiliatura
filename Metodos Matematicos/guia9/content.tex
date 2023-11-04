@@ -1,0 +1,136 @@
+%\vspace{1cm}
+\section*{Función de Green}
+Luego de estudiar los operadores diferenciales lineales, ahora nos enfocaremos en métodos basados en operadores integrales, en concreto, los llamados\textbf{funciones de Green}. Estas funciones nos "desbloquean" la solución a problemas que contengan un término no homogeneo (término fuente), relacionandolo con un operador integral que contenga esta fuente.
+
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Operadores Diferenciales:}} \\
+	
+
+\end{mdframed}
+
+
+
+
+Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
+
+
+
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Ecuación de Laplace:}} \\
+	Es una ecuación en derivadas parciales de segundo orden de tipo elíptica, es una simplificación de la ecuación de Poisson, así como de la ecuación de Helmholtz.
+		$$ \laplacian{u} = 0. $$
+\end{mdframed}
+
+
+
+
+
+
+
+
+
+\pagebreak
+
+
+\section*{Problemas}
+
+
+\begin{ejercicio}
+	Encuentre el potencial en todas las regiones de un capacitor esférico (radio $R_o$), con la siguiente condición de frontera.
+		$$ \phi (R_o ,\theta) = \left\{ \mqty{V & 0\leq \theta \leq \pi /2 \\ -V & \pi/2 < \theta \leq \pi.} \right. $$
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre que los polinomios de Hermite son ortogonales y encuentre su norma utilizando la función peso $w(x) = e^{-x^2 /2}$.
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre las relaciones de recurrencia para las funciones de Hermite:
+	\begin{itemize}
+		\item $H_{n + 1} (x) = 2xH_n (x) - H_n ' (x)$.
+		\item $H_{n + 1} ' (x) = 2(n + 1) H_n (x) = 2H_n (x) + 2xH_n ' (x) - H_n '' (x)$.
+	\end{itemize}
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Demuestre las relaciones de recurrencia para las funciones de Bessel de 1er orden:
+	\begin{itemize}
+		\item $J_{n - 1} (x) + J_{n + 1} (x) = \frac{2n}{x} J_n (x)$.
+		\item $J_{n - 1} (x) - J_{n + 1} (x) = 2J_n ' (x)$.
+	\end{itemize}
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{ejercicio}
+	Realize lo solicitado en el problema 2, pero para las funciones de Bessel. Utilice esta integral para iniciar:
+		$$ \int _0 ^1 x J_\nu (\lambda x) J_\nu (\mu x) \dd{x}. $$
+\end{ejercicio}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%

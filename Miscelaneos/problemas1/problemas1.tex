@@ -1,0 +1,58 @@
+\input{/home/diego/Documents/Licenciatura/LatexBasic/Preamble_general}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}%formato de pagina
+\pagestyle{fancy}%colocar la pagina con el formato deseado
+\fancyhead{}
+\fancyhead[L]{\footnotesize{Preparación Olimpiada Iberoamericana}}  
+\fancyhead[C]{Problemas 1}
+\fancyhead[R]{\footnotesize{\thepage}}
+%\fancyhead[LO,RE]{Cálculo 3}
+%\fancyhead[RO,LE]{\footnotesize{\thepage}}
+\fancyfoot{}
+\fancyfoot[L]{Diego Sarceño}
+%\fancyfoot[LO,RE]{Diego Sarceño}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NUEVA BARRA INFERIOR, NICEEEE :3
+\usepackage{fourier-orns}
+
+\renewcommand\footrule{%
+\hrulefill
+\raisebox{-2.1pt}
+{\quad\decosix\quad}%
+\hrulefill}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inner}[2]{\langle #1 , #2 \rangle}
+\newcommand{\metric}[2]{\rho(#1,#2)}	
+\newcommand{\seque}[2]{\{ #1_{#2} \}}
+\newcommand{\E}{\mathbf{E}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{shadows}
+
+\newmdenv[shadow=true,shadowcolor=black,font=\sffamily,rightmargin=8pt]{shadedbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{DS_Black}{HTML}{000000}
+
+\begin{document}
+\begin{titlepage}
+\input{Header_original}
+
+%\noindent \textbf{Instrucciones: } Resuelva cada uno de los siguientes problemas a \LaTeX  o a mano con letra clara y legible, dejando constancia de sus procedimientos. No es necesaria la carátula, únicamente su identificaciónn y las respuestas encerradas en un cuadro.
+
+\input{content.tex}
+
+
+%\pagebreak
+%
+%
+%\begin{thebibliography}{00}
+%\bibitem{b1} Falomir, H. (2015). \textit{Curso de métodos de la física matemática.} Series: Libros de Cátedra.
+%\bibitem{b2} Arfken, G. B., \& Weber, H. J. (2013). Mathematical methods for physicists.
+%\bibitem{b3} Chubay, R. (2017). \textit{Propiedades Espectrales de Operadores no Acotados en el Espacio $L^2 (\R)$.} [Tesis de Licenciatura]. Universidad de San Carlos de Cuatemala.
+%\bibitem{b4} Axler, S. (2015). \textit{Linear algebra done right.} springer publication.
+%\end{thebibliography}
+
+
+
+\end{titlepage}
+\end{document}
