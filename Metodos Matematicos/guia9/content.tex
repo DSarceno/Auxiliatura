@@ -1,12 +1,21 @@
 %\vspace{1cm}
 \section*{Función de Green}
-Luego de estudiar los operadores diferenciales lineales, ahora nos enfocaremos en métodos basados en operadores integrales, en concreto, los llamados\textbf{funciones de Green}. Estas funciones nos "desbloquean" la solución a problemas que contengan un término no homogeneo (término fuente), relacionandolo con un operador integral que contenga esta fuente.
+Luego de estudiar los operadores diferenciales lineales, ahora nos enfocaremos en métodos basados en operadores integrales, en concreto, los llamados\textbf{funciones de Green}. Estas funciones nos "desbloquean" la solución a problemas que contengan un término no homogeneo (término fuente), relacionandolo con un operador integral que contenga esta fuente. \\
 
 
+\href{https://youtu.be/ism2SfZgFJg?si=Mi-57CoReH2CGW91}{VIDEO} \\
+\href{https://en.wikipedia.org/wiki/Green\%27s_function#Table_of_Green's_functions}{TABLA DE FUNCIONES} \\
+\href{https://brilliant.org/wiki/greens-functions-in-physics/}{FUNCIONES DE GREEN EN LA FÍSICA} \\
+\href{https://es.wikipedia.org/wiki/Identidades_de_Green}{identidades}
 \begin{mdframed}[style=warning]
-	{\Large \textbf{Operadores Diferenciales:}} \\
-	
-
+	{\Large \textbf{Delta de Dirac:}} \\
+	Esta es una herramienta bastante utilizada en electrostática, pero la idea física detrás de ella la pueden leer en \href{https://en.wikipedia.org/wiki/Dirac_delta_function#Motivation_and_overview}{"Motivation and Overview"}. La idea física se puede ver como una bola de billar estática en el tiempo $t = 0$, luego es golpeada por otra bola impartiendo un momento $p$, el intercambio de momentum no es instantaneo, pero para efectos prácticos la energía se transfiere instantáneamente. La fuerza sería $p\cdot \delta (t)$. A esta se le conoce como la función Delta de Dirac
+		$$ \delta (x) \simeq \left\{ \mqty{ \infty , & \quad x = 0 ; \\ 0, & \quad x \neq 0. } \right. $$
+	Esta función cumple con algunas propiedades utiles:
+	\begin{itemize}
+		\item $\int _{-\infty} ^\infty \delta (x) \dd{x} = 1.$
+		\item $ \int _{-\infty} ^\infty f(t) \delta (t - \tau) \dd{t} = f(\tau). $
+	\end{itemize}
 \end{mdframed}
 
 
@@ -18,9 +27,12 @@ Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
 
 
 \begin{mdframed}[style=warning]
-	{\Large \textbf{Ecuación de Laplace:}} \\
-	Es una ecuación en derivadas parciales de segundo orden de tipo elíptica, es una simplificación de la ecuación de Poisson, así como de la ecuación de Helmholtz.
-		$$ \laplacian{u} = 0. $$
+	{\Large \textbf{Función de Green:}} \\
+	Para un operador diferencial no homogeneo se tiene a la función de Green como una forma de solución del sistema. Es decir que si $L$ es un operador diferencial lineal, entonces
+	\begin{itemize}
+		\item La función de Green $G$ es la solución a la ecuación $LG = \delta$, con $\delta$ como la delta de Dirac.
+		\item la solución al problema de valores iniciales $Ly = f$ es la convolución de $G\ast f$.
+	\end{itemize}
 \end{mdframed}
 
 
