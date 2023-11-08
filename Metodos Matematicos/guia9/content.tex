@@ -3,10 +3,7 @@
 Luego de estudiar los operadores diferenciales lineales, ahora nos enfocaremos en métodos basados en operadores integrales, en concreto, los llamados\textbf{funciones de Green}. Estas funciones nos "desbloquean" la solución a problemas que contengan un término no homogeneo (término fuente), relacionandolo con un operador integral que contenga esta fuente. \\
 
 
-\href{https://youtu.be/ism2SfZgFJg?si=Mi-57CoReH2CGW91}{VIDEO} \\
-\href{https://en.wikipedia.org/wiki/Green\%27s_function#Table_of_Green's_functions}{TABLA DE FUNCIONES} \\
-\href{https://brilliant.org/wiki/greens-functions-in-physics/}{FUNCIONES DE GREEN EN LA FÍSICA} \\
-\href{https://es.wikipedia.org/wiki/Identidades_de_Green}{identidades}
+
 \begin{mdframed}[style=warning]
 	{\Large \textbf{Delta de Dirac:}} \\
 	Esta es una herramienta bastante utilizada en electrostática, pero la idea física detrás de ella la pueden leer en \href{https://en.wikipedia.org/wiki/Dirac_delta_function#Motivation_and_overview}{"Motivation and Overview"}. La idea física se puede ver como una bola de billar estática en el tiempo $t = 0$, luego es golpeada por otra bola impartiendo un momento $p$, el intercambio de momentum no es instantaneo, pero para efectos prácticos la energía se transfiere instantáneamente. La fuerza sería $p\cdot \delta (t)$. A esta se le conoce como la función Delta de Dirac
@@ -33,9 +30,49 @@ Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
 		\item La función de Green $G$ es la solución a la ecuación $LG = \delta$, con $\delta$ como la delta de Dirac.
 		\item la solución al problema de valores iniciales $Ly = f$ es la convolución de $G\ast f$.
 	\end{itemize}
+	
+	Visto un poco más formal y basandonos en la construcción de la función de Green, se puede decir que: La función de Green de la ecuación $L_n y = f$\footnote{$L_n y = y^{(n)} + a_1 (t) y^{(n - 1)} + \cdots + a_n (t) y $.} es la función numérica $G(t,\tau)$, definida en el cuadrado $Q$\footnote{Denotemos $Q := \{ (t,\tau) : t\in [a,b],\quad \tau \in [a,b] \} $.} y que tiene las siguientes propiedades:
+	\begin{itemize}
+		\item La función $G(t,\tau)$ y sus derivadas respecto a $t$ hasta el orden $n-2$ son continuas respecto a $\tau$ en $[a,b]$.
+		\item Las derivads respecto a $t$ de orden $n-1$ y $n$ son continuas con respecto a $\tau$ en el conjunto $[a,\tau) \cup (\tau ,b]$.
+		\item las derivadas respecto a $t$ de orden $n-1$ en $t=\tau$, tiene un salto igual a la unidad
+			$$ \pdv[n-1]{G(\tau + 0,\tau)}{t} - \pdv[n-1]{G(\tau - 0,\tau)}{t} = 1. $$
+		\item Para $t \neq \tau$ la función $G(t,\tau)$, como función de $t$ satisface la ecuación homogenea $L_n y = 0$.
+	\end{itemize}
 \end{mdframed}
 
 
+
+Teniendo estas pequeñas definiciones es posible ver y estudiar las funciones de green en problemas de 1 dimensión y sus soluciones (ver Arfken, Capítulo 10.1, p452). Pansando a problemas en más dimensiones, se agregan un par de propiedades a las funciones de Green.
+
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Otras Propiedades de la Función de Green:}} \\
+	Cuando $L$ y sus condiciones de frontera definen el problema de vectores propios $L\psi = \lambda \psi$ con las funciones propias $\varphi _n (\vb{r})$ y sus correspondientes valores propios $\lambda _n$, entonces
+	\begin{itemize}
+		\item $G(\vb{r} _1,\vb{r} _2)$ es simétrico,
+		\item $G(\vb{r} _1,\vb{r} _2)$ tienen la expansion de funciones propias
+			$$ G(\vb{r} _1,\vb{r} _2) = \sum _n \frac{\varphi _n ^\ast (\vb{r} _2) \varphi _n ^\ast (\vb{r} _1)}{\lambda _n}. $$
+	\end{itemize}
+\end{mdframed}
+
+La forma que tendrán estas funciones de Green se pueden encontrar analíticamente, pero ya no estamos para estos trotes, así que les adjunto las funciones de Green para los diferentes operadores: \href{https://en.wikipedia.org/wiki/Green\%27s_function#Table_of_Green's_functions}{Tabla de Funciones} y también se puede revisar la tabla 10.1, de Arfken. Además, para tener una buena idea de lo que son las funciones de green al menos un de manera superficial (para entenderlo mejor), ver el siguiente \href{https://youtu.be/ism2SfZgFJg?si=Mi-57CoReH2CGW91}{video}. El ejemplo visto en clase fue extraído de la página de \href{https://brilliant.org/wiki/greens-functions-in-physics/}{Brilliant}. \\
+
+Y, como último añadido, se tienen algunas identidades de Green.
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Primera Identidad de Green:}} \\
+	Esta identidad se deriva del \href{https://en.wikipedia.org/wiki/Divergence_theorem}{Teorema de la Divergencia} aplicado a un campo vectorial $\vb{F} = \psi \grad{\varphi}$, entonces
+		$$ \int _U \psi \laplacian{\varphi} \dd{V} = \oint _{\partial U} \psi (\grad{\varphi} \cdot n) \dd{S} - \int _U \qty(\grad{\varphi} \cdot \grad{\psi}) \dd{V}. $$
+\end{mdframed}
+
+
+
+\begin{mdframed}[style=warning]
+	{\Large \textbf{Segunda Identidad de Green:}}\\
+	Se tiene:
+		$$ \int _U \qty(\psi \laplacian{\varphi} - \varphi \laplacian{\psi}) \dd{V} = \int _{\partial U} \qty(\psi \grad{\varphi} - \varphi \grad{\psi}) \cdot n \dd{S}. $$
+\end{mdframed}
 
 
 
@@ -50,8 +87,9 @@ Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
 
 
 \begin{ejercicio}
-	Encuentre el potencial en todas las regiones de un capacitor esférico (radio $R_o$), con la siguiente condición de frontera.
-		$$ \phi (R_o ,\theta) = \left\{ \mqty{V & 0\leq \theta \leq \pi /2 \\ -V & \pi/2 < \theta \leq \pi.} \right. $$
+	Construya la función de Green para
+		$$ x^2 \dv[2]{y}{x} + x\dv{y}{x} + (k^2 x^2 - 1)y = 0. $$
+	Sujeta a las condiciones de frontera $y(0) = y(1) = 0$.
 \end{ejercicio}
 
 
@@ -66,8 +104,18 @@ Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
 
 
 \begin{ejercicio}
-	Demuestre que los polinomios de Hermite son ortogonales y encuentre su norma utilizando la función peso $w(x) = e^{-x^2 /2}$.
+	Encuentre la función de Green para la ecuación
+		$$ -\dv[2]{y}{x} - \frac{y}{4} = f(x), $$
+	sujeta a las condiciones de frontera $y(0) = y(\pi) = 0$.
 \end{ejercicio}
+
+
+
+
+
+
+
+
 
 
 
@@ -83,11 +131,14 @@ Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
 
 
 \begin{ejercicio}
-	Demuestre las relaciones de recurrencia para las funciones de Hermite:
-	\begin{itemize}
-		\item $H_{n + 1} (x) = 2xH_n (x) - H_n ' (x)$.
-		\item $H_{n + 1} ' (x) = 2(n + 1) H_n (x) = 2H_n (x) + 2xH_n ' (x) - H_n '' (x)$.
-	\end{itemize}
+	Visto el video \href{https://youtu.be/ism2SfZgFJg?si=Mi-57CoReH2CGW91}{video}, resuelva el ejercicio propuesto.
+	\begin{enumerate}
+		\item Explique $F(t) = \int _{-\infty} ^\infty F(\tau) \delta (t - \tau) \dd{\tau}$.
+		\item La interpretación de $\delta (t - \tau)$.
+		\item Reinterprete $F(t) = \int _{-\infty} ^\infty F(\tau) \delta (t - \tau) \dd{\tau}$.
+		\item Que interpretación tiene $G(t,\tau)$?
+		\item Interprete $x(t) = \int _{-\infty} ^\infty F(\tau) G(t,\tau) \dd{\tau}$.
+	\end{enumerate}
 \end{ejercicio}
 
 
@@ -99,32 +150,6 @@ Teniendo esto en mente, es momento de introducir la ecuación de Laplace.
 
 
 
-
-
-
-\begin{ejercicio}
-	Demuestre las relaciones de recurrencia para las funciones de Bessel de 1er orden:
-	\begin{itemize}
-		\item $J_{n - 1} (x) + J_{n + 1} (x) = \frac{2n}{x} J_n (x)$.
-		\item $J_{n - 1} (x) - J_{n + 1} (x) = 2J_n ' (x)$.
-	\end{itemize}
-\end{ejercicio}
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{ejercicio}
-	Realize lo solicitado en el problema 2, pero para las funciones de Bessel. Utilice esta integral para iniciar:
-		$$ \int _0 ^1 x J_\nu (\lambda x) J_\nu (\mu x) \dd{x}. $$
-\end{ejercicio}
 
 
 
